@@ -9,7 +9,7 @@
   <meta name="description" content="Moheji Token (MOJ) is a Japanese meme token built on Solana, combining humor and blockchain utility. Join the new era of decentralized fun." />
   <meta property="og:title" content="Moheji Token - The Meme Token of a New Era" />
   <meta property="og:description" content="A revolutionary meme token born from Japanese humor and blockchain technology. Built on Solana." />
-  <meta property="og:image" content="https://raw.githubusercontent.com/mohejicoin/token-list/main/assets/mainnet/HJwToCxFFmtnYGZMQa7rZwHAMG2evdbdXAbbQr1Jpump/logo.png" />
+  <meta property="og:image" content="https://raw.githubusercontent.com/mohejicoin/token-list/refs/heads/main/moheji_logo_square_1024x1024.png" />
   <meta property="og:url" content="https://mohejicoin.github.io/moheji-landing-page/" />
   <meta name="twitter:card" content="summary_large_image" />
 
@@ -89,7 +89,7 @@
   </style>
 </head>
 <body>
-  <img src="https://raw.githubusercontent.com/mohejicoin/token-list/main/assets/mainnet/HJwToCxFFmtnYGZMQa7rZwHAMG2evdbdXAbbQr1Jpump/logo.png" alt="Moheji Logo" class="logo" />
+  <img src="https://raw.githubusercontent.com/mohejicoin/token-list/refs/heads/main/moheji_logo_square_1024x1024.png" alt="Moheji Logo" class="logo" />
   <h1>Moheji Token (MOJ)</h1>
   <p>
   An innovative meme token born from Japanese humor and blockchain technology.<br />
@@ -111,13 +111,12 @@
     &copy; 2025 Moheji Project. All rights reserved.
   </footer>
 
- <script>
+  <script>
     async function fetchSupply() {
       try {
         const res = await fetch('https://raw.githubusercontent.com/mohejicoin/moheji-api/main/moj-supply.json');
         if (!res.ok) throw new Error('Failed to fetch supply data');
         const data = await res.json();
-       // Format number with thousand separators and two decimal places
         document.getElementById('supply').textContent = data.supply.toLocaleString(undefined, { maximumFractionDigits: 2 });
       } catch (error) {
         document.getElementById('supply').textContent = 'Unavailable';
@@ -126,6 +125,5 @@
     }
     fetchSupply();
   </script>
-  
 </body>
 </html>
