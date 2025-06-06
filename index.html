@@ -184,4 +184,40 @@
     <a href="https://x.com/mohejicoin" target="_blank" rel="noopener noreferrer">X (Twitter)</a>
     <a href="https://solscan.io/token/HJwToCxFFmtnYGZMQa7rZwHAMG2evdbdXAbbQr1Jpump" target="_blank" rel="noopener noreferrer">View on Solscan</a>
     <a href="https://www.dropbox.com/scl/fi/4mdi4afbljsh2yl0cpa9b/moheji.pdf?rlkey=ean496qcriakyt9bliv83cgs6&st=9zb8sbto&dl=0" target="_blank" rel="noopener noreferrer">White Paper</a>
-    <a href="https://pump.fun/coin/HJ
+  </div>
+
+  <footer>
+    © 2025 Moheji Token. All rights reserved.
+  </footer>
+
+  <script>
+    const MAX_SUPPLY = 1000000000; // 10億
+
+    async function fetchSupply() {
+      try {
+        const response = await fetch('https://raw.githubusercontent.com/mohejicoin/moheji-api/main/moj-supply.json');
+        if (!response.ok) throw new Error('Network response was not ok');
+        const data = await response.json();
+
+        const currentSupply = data.supply || 0;
+        const burned = MAX_SUPPLY - currentSupply;
+        const circulatingPercent = (currentSupply / MAX_SUPPLY) * 100;
+
+        const formatter = new Intl.NumberFormat();
+
+        document.getElementById('supply').textContent = formatter.format(currentSupply.toFixed(0));
+        document.getElementById('burned').textContent = formatter.format(burned.toFixed(0));
+        document.getElementById('percent').textContent = `${circulatingPercent.toFixed(2)}% Circulating`;
+
+        const progressBar = document.getElementById('progress-bar');
+        progressBar.style.width = `${circulatingPercent}%`;
+      } catch (error) {
+        console.error('Failed to fetch supply:', error);
+        document.getElementById('supply').textContent = 'Error';
+        document.getElementById('burned').textContent = 'Error';
+        document.getElementById('percent').textContent = 'Error';
+      }
+    }
+
+    fetchSupply();
+   
