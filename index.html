@@ -9,15 +9,13 @@
   <meta name="description" content="Moheji Token (MOJ) is a Japanese meme token built on Solana, combining humor and blockchain utility. Join the new era of decentralized fun." />
   <meta property="og:title" content="Moheji Token - The Meme Token of a New Era" />
   <meta property="og:description" content="A revolutionary meme token born from Japanese humor and blockchain technology. Built on Solana." />
-  <meta property="og:image" content="https://raw.githubusercontent.com/mohejicoin/token-list/main/assets/mainnet/HJwToCxFFmtnYGZMQa7rZwHAMG2evdbdXAbbQr1Jpump/logo.png" />
+  <meta property="og:image" content="https://raw.githubusercontent.com/mohejicoin/token-list/refs/heads/main/moheji_logo_square_1024x1024.png" />
   <meta property="og:url" content="https://mohejicoin.github.io/moheji-landing-page/" />
   <meta name="twitter:card" content="summary_large_image" />
 
   <!-- Favicon -->
   <link rel="icon" href="favicon.png?v=2" type="image/png" sizes="32x32" />
   <link rel="icon" href="favicon.ico" type="image/x-icon" />
-
-  <!-- Apple touch icon -->
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
 
   <!-- Manifest for PWA -->
@@ -74,6 +72,24 @@
       font-size: 12px;
       color: #666;
     }
+
+    .progress-container {
+      width: 100%;
+      max-width: 400px;
+      margin: 10px auto 30px;
+      background-color: #e0e0e0;
+      border-radius: 6px;
+      overflow: hidden;
+      height: 16px;
+    }
+
+    .progress-bar {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(to right, #4CAF50 0%, #FFC107 70%, #F44336 100%);
+      transition: width 0.6s ease;
+    }
+
     /* Responsive */
     @media (max-width: 480px) {
       h1 {
@@ -85,60 +101,131 @@
         min-width: 140px;
       }
     }
-    /* Supply info style */
-    .supply-info {
-      margin: 20px auto 30px;
-      font-size: 18px;
-      max-width: 400px;
-      color: #222;
-    }
-    .supply-info p {
-      margin: 8px 0;
+
+    /* Language selector */
+    #language-select {
+      margin: 20px auto;
+      padding: 8px 12px;
+      font-size: 16px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      max-width: 280px;
     }
   </style>
 </head>
 <body>
-  <img src="https://raw.githubusercontent.com/mohejicoin/token-list/main/assets/mainnet/HJwToCxFFmtnYGZMQa7rZwHAMG2evdbdXAbbQr1Jpump/logo.png" alt="Moheji Logo" class="logo" />
-  <h1>Moheji Token (MOJ)</h1>
-  <p>
-    A revolutionary meme token born from Japanese humor and blockchain technology.<br />
-    Built on Solana, Moheji is both fun and practical.<br />
-    Join the world of “Moheji” and be part of the next movement.
+  <img src="https://raw.githubusercontent.com/mohejicoin/token-list/refs/heads/main/moheji_logo_square_1024x1024.png" alt="Moheji Logo" class="logo" />
+  <h1 id="title">Moheji Token (MOJ)</h1>
+  <p id="description">
+    An innovative meme token born from Japanese humor and blockchain technology.<br />
+    Built on Solana, Moheji is both playful and practical.<br />
+    Inspired by the iconic Japanese emoticon “Henohenomoheji,”<br />
+    it brings a spirit of humor to serious technology.<br />
+    Jump into the world of Moheji and be part of a new cultural and crypto movement.
   </p>
 
-  <!-- Supply info -->
-  <div class="supply-info">
-    <p>Current Supply: <span id="currentSupply">Loading...</span> MOJ</p>
-    <p>Max Supply: 1,000,000,000 MOJ</p>
-    <p>Burned: <span id="burned">Loading...</span> MOJ</p>
-    <p>Circulating: <span id="circulating">Loading...</span> MOJ</p>
+  <!-- Language Switcher -->
+  <select id="language-select" onchange="changeLanguage(this.value)">
+    <option value="en">English</option>
+    <!-- 日本語は除外 -->
+    <option value="zh">中文</option>
+    <option value="ko">한국어</option>
+    <option value="es">Español</option>
+    <option value="fr">Français</option>
+    <option value="de">Deutsch</option>
+    <option value="it">Italiano</option>
+    <option value="pt">Português</option>
+    <option value="ru">Русский</option>
+    <option value="ar">العربية</option>
+    <option value="hi">हिन्दी</option>
+    <option value="bn">বাংলা</option>
+    <option value="tr">Türkçe</option>
+    <option value="vi">Tiếng Việt</option>
+    <option value="th">ไทย</option>
+    <option value="pl">Polski</option>
+    <option value="nl">Nederlands</option>
+    <option value="sv">Svenska</option>
+    <option value="cs">Čeština</option>
+    <option value="uk">Українська</option>
+    <option value="ro">Română</option>
+    <option value="hu">Magyar</option>
+    <option value="el">Ελληνικά</option>
+    <option value="he">עברית</option>
+    <option value="id">Bahasa Indonesia</option>
+    <option value="ms">Bahasa Melayu</option>
+    <option value="fa">فارسی</option>
+    <option value="fi">Suomi</option>
+    <option value="no">Norsk</option>
+    <option value="da">Dansk</option>
+    <option value="sr">Српски</option>
+    <option value="sk">Slovenčina</option>
+    <option value="hr">Hrvatski</option>
+    <option value="lt">Lietuvių</option>
+    <option value="lv">Latviešu</option>
+    <option value="et">Eesti</option>
+    <option value="bg">Български</option>
+    <option value="sl">Slovenščina</option>
+    <option value="mt">Malti</option>
+    <option value="is">Íslenska</option>
+    <option value="ga">Gaeilge</option>
+    <option value="eu">Euskara</option>
+    <option value="af">Afrikaans</option>
+  </select>
+
+  <!-- Token Supply Section with Progress Bar -->
+  <p>
+    Current Supply: <strong><span id="supply">Loading...</span> MOJ</strong><br />
+    Max Supply: <strong>1,000,000,000 MOJ</strong><br />
+    Burned: <strong><span id="burned">Loading...</span> MOJ</strong><br />
+    Circulating: <strong><span id="percent">Loading...</span></strong>
+  </p>
+  <div class="progress-container">
+    <div id="progress-bar" class="progress-bar"></div>
   </div>
 
+  <!-- Buttons -->
   <div class="buttons">
     <a href="https://x.com/mohejicoin" target="_blank" rel="noopener noreferrer">X (Twitter)</a>
     <a href="https://solscan.io/token/HJwToCxFFmtnYGZMQa7rZwHAMG2evdbdXAbbQr1Jpump" target="_blank" rel="noopener noreferrer">View on Solscan</a>
     <a href="https://www.dropbox.com/scl/fi/4mdi4afbljsh2yl0cpa9b/moheji.pdf?rlkey=ean496qcriakyt9bliv83cgs6&st=9zb8sbto&dl=0" target="_blank" rel="noopener noreferrer">White Paper</a>
-    <a href="#" target="_blank" rel="noopener noreferrer">Get MOJ Now</a>
+    <a href="https://pump.fun/coin/HJwToCxFFmtnYGZMQa7rZwHAMG2evdbdXAbbQr1Jpump" target="_blank" rel="noopener noreferrer">Get MOJ Now</a>
   </div>
+
+  <!-- Footer -->
   <footer>
     &copy; 2025 Moheji Project. All rights reserved.
   </footer>
 
+  <!-- Script to fetch and display supply -->
   <script>
-    fetch('https://raw.githubusercontent.com/mohejicoin/moheji-api/main/moj-supply.json')
-      .then(response => response.json())
-      .then(data => {
-        document.getElementById('currentSupply').textContent = Number(data.currentSupply).toLocaleString();
-        document.getElementById('burned').textContent = Number(data.burned).toLocaleString();
-        document.getElementById('circulating').textContent = Number(data.circulating).toLocaleString();
-      })
-      .catch(error => {
-        console.error('Failed to load MOJ supply data:', error);
-        document.getElementById('currentSupply').textContent = 'Error';
-        document.getElementById('burned').textContent = 'Error';
-        document.getElementById('circulating').textContent = 'Error';
-      });
-  </script>
-</body>
-</html>
+    async function fetchSupply() {
+      try {
+        const res = await fetch('https://raw.githubusercontent.com/mohejicoin/moheji-api/main/moj-supply.json');
+        if (!res.ok) throw new Error('Failed to fetch supply data');
+        const data = await res.json();
+
+        const maxSupply = 1000000000;
+        const currentSupply = data.supply;
+        const burned = maxSupply - currentSupply;
+        const percent = (currentSupply / maxSupply) * 100;
+
+        document.getElementById('supply').textContent = currentSupply.toLocaleString(undefined, { maximumFractionDigits: 2 });
+        document.getElementById('burned').textContent = burned.toLocaleString(undefined, { maximumFractionDigits: 2 });
+        document.getElementById('percent').textContent = percent.toFixed(2) + '%';
+        document.getElementById('progress-bar').style.width = percent + '%';
+
+      } catch (error) {
+        document.getElementById('supply').textContent = 'Unavailable';
+        document.getElementById('burned').textContent = 'Unavailable';
+        document.getElementById('percent').textContent = 'Unavailable';
+        console.error('Error fetching supply:', error);
+      }
+    }
+    fetchSupply();
+
+    // 多言語対応データ
+    const translations = {
+      en: {
+        title:
+
 
