@@ -15,42 +15,45 @@
 
   <!-- Favicon -->
   <link rel="icon" href="favicon.png?v=2" type="image/png" sizes="32x32" />
-  <link rel="icon" href="favicon.ico" type="image/x-icon" />
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
-
-  <!-- Manifest for PWA -->
   <link rel="manifest" href="manifest.json" />
   <meta name="theme-color" content="#ffffff" />
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet" />
 
+  <!-- Styles -->
   <style>
     body {
       margin: 0;
       font-family: 'Inter', sans-serif;
-      background-color: white;
-      color: black;
+      background-color: #fff;
+      color: #111;
       text-align: center;
       padding: 40px 20px;
     }
-    .logo {
+
+    img.logo {
       max-width: 180px;
       margin: 0 auto 20px;
     }
+
     h1 {
       font-size: 28px;
       margin: 20px 0 10px;
     }
+
     p {
       font-size: 16px;
       max-width: 600px;
       margin: 0 auto 20px;
       line-height: 1.6;
     }
+
     .buttons {
       margin-top: 30px;
     }
+
     .buttons a {
       display: inline-block;
       background-color: black;
@@ -64,9 +67,11 @@
       min-width: 160px;
       text-align: center;
     }
+
     .buttons a:hover {
       background-color: #333;
     }
+
     footer {
       margin-top: 50px;
       font-size: 12px;
@@ -112,7 +117,6 @@
       font-family: monospace;
     }
 
-    /* Responsive */
     @media (max-width: 480px) {
       h1 {
         font-size: 22px;
@@ -125,53 +129,57 @@
     }
   </style>
 </head>
+
 <body>
-  <img src="https://raw.githubusercontent.com/mohejicoin/token-list/refs/heads/main/moheji_logo_square_1024x1024.png" alt="Moheji Logo" class="logo" />
-  <h1>Moheji Token (MOJ)</h1>
-  <p>
-    An innovative meme token born from Japanese humor and blockchain technology.<br />
-    Built on Solana, Moheji is both playful and practical.<br />
-    Inspired by the iconic Japanese emoticon “Henohenomoheji,”<br />
-    it brings a spirit of humor to serious technology.<br />
-    Jump into the world of Moheji and be part of a new cultural and crypto movement.
-  </p>
-
-  <!-- Token Supply Section with Progress Bar -->
-  <p>Current Supply: <strong><span id="supply">Loading...</span> MOJ</strong></p>
-  <p>
-    Max Supply: <strong>1,000,000,000 MOJ</strong><br />
-    Burned: <strong><span id="burned">Loading...</span> MOJ</strong><br />
-    Circulating: <strong><span id="percent">Loading...</span></strong>
-  </p>
-  <div class="progress-container">
-    <div id="progress-bar" class="progress-bar"></div>
-  </div>
-
-  <!-- Buttons -->
-  <div class="buttons">
-    <a href="https://x.com/mohejicoin" target="_blank" rel="noopener noreferrer">X (Twitter)</a>
-    <a href="https://solscan.io/token/HJwToCxFFmtnYGZMQa7rZwHAMG2evdbdXAbbQr1Jpump" target="_blank" rel="noopener noreferrer">View on Solscan</a>
-    <a href="https://www.dropbox.com/scl/fi/4mdi4afbljsh2yl0cpa9b/moheji.pdf?rlkey=ean496qcriakyt9bliv83cgs6&st=9zb8sbto&dl=0" target="_blank" rel="noopener noreferrer">White Paper</a>
-    <a href="https://pump.fun/coin/HJwToCxFFmtnYGZMQa7rZwHAMG2evdbdXAbbQr1Jpump" target="_blank" rel="noopener noreferrer">Get MOJ Now</a>
-  </div>
-
-  <!-- Donation Section -->
-  <section id="donation">
-    <h2>Support Moheji Development</h2>
-    <p>This project is built with community passion and volunteer efforts.</p>
-    <p>If you'd like to support development, donations are appreciated at the address below:</p>
-    <code>H9YbWjAyDGcBVsunjeV2nhXaSzdLVtLM7n2bW2pDQG31</code>
-    <p style="font-size: 0.8em; color: #777; margin-top: 0.5em;">
-      *Solana network (SOL or MOJ tokens only)
+  <main>
+    <img src="https://raw.githubusercontent.com/mohejicoin/token-list/refs/heads/main/moheji_logo_square_1024x1024.png" alt="Moheji Logo" class="logo" />
+    <h1>Moheji Token (MOJ)</h1>
+    <p>
+      An innovative meme token born from Japanese humor and blockchain technology.<br />
+      Built on Solana, Moheji is both playful and practical.<br />
+      Inspired by the iconic Japanese emoticon “Henohenomoheji,”<br />
+      it brings a spirit of humor to serious technology.<br />
+      Jump into the world of Moheji and be part of a new cultural and crypto movement.
     </p>
-  </section>
 
-  <!-- Footer -->
+    <!-- Token Supply Info -->
+    <section aria-label="Token Supply Information">
+      <p>Current Supply: <strong><span id="supply">Loading...</span> MOJ</strong></p>
+      <p>
+        Max Supply: <strong>1,000,000,000 MOJ</strong><br />
+        Burned: <strong><span id="burned">Loading...</span> MOJ</strong><br />
+        Circulating: <strong><span id="percent">Loading...</span></strong>
+      </p>
+      <div class="progress-container">
+        <div id="progress-bar" class="progress-bar"></div>
+      </div>
+    </section>
+
+    <!-- Buttons -->
+    <div class="buttons">
+      <a href="https://x.com/mohejicoin" target="_blank" rel="noopener noreferrer">X (Twitter)</a>
+      <a href="https://solscan.io/token/HJwToCxFFmtnYGZMQa7rZwHAMG2evdbdXAbbQr1Jpump" target="_blank" rel="noopener noreferrer">View on Solscan</a>
+      <a href="https://www.dropbox.com/scl/fi/4mdi4afbljsh2yl0cpa9b/moheji.pdf?rlkey=ean496qcriakyt9bliv83cgs6&st=9zb8sbto&dl=0" target="_blank" rel="noopener noreferrer">White Paper</a>
+      <a href="https://pump.fun/coin/HJwToCxFFmtnYGZMQa7rZwHAMG2evdbdXAbbQr1Jpump" target="_blank" rel="noopener noreferrer">Get MOJ Now</a>
+    </div>
+
+    <!-- Donation Section -->
+    <section id="donation">
+      <h2>Support Moheji Development</h2>
+      <p>This project is built with community passion and volunteer efforts.</p>
+      <p>If you'd like to support development, donations are appreciated at the address below:</p>
+      <code>H9YbWjAyDGcBVsunjeV2nhXaSzdLVtLM7n2bW2pDQG31</code>
+      <p style="font-size: 0.8em; color: #777; margin-top: 0.5em;">
+        *Solana network (SOL or MOJ tokens only)
+      </p>
+    </section>
+  </main>
+
   <footer>
     &copy; 2025 Moheji Project. All rights reserved.
   </footer>
 
-  <!-- Script to fetch and display supply -->
+  <!-- JS for Supply Info -->
   <script>
     async function fetchSupply() {
       try {
@@ -190,12 +198,19 @@
         document.getElementById('progress-bar').style.width = percent + '%';
 
       } catch (error) {
-        document.getElementById('supply').textContent = 'Unavailable';
-        document.getElementById('burned').textContent = 'Unavailable';
-        document.getElementById('percent').textContent = 'Unavailable';
         console.error('Error fetching supply:', error);
+        const fallbackText = 'Unavailable';
+        document.getElementById('supply').textContent = fallbackText;
+        document.getElementById('burned').textContent = fallbackText;
+        document.getElementById('percent').textContent = fallbackText;
       }
     }
+
+    fetchSupply();
+  </script>
+</body>
+</html>
+
     fetchSupply();
   </script>
 </body>
