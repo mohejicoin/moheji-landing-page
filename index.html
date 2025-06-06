@@ -101,22 +101,12 @@
         min-width: 140px;
       }
     }
-
-    /* Language selector */
-    #language-select {
-      margin: 20px auto;
-      padding: 8px 12px;
-      font-size: 16px;
-      border-radius: 6px;
-      border: 1px solid #ccc;
-      max-width: 280px;
-    }
   </style>
 </head>
 <body>
   <img src="https://raw.githubusercontent.com/mohejicoin/token-list/refs/heads/main/moheji_logo_square_1024x1024.png" alt="Moheji Logo" class="logo" />
-  <h1 id="title">Moheji Token (MOJ)</h1>
-  <p id="description">
+  <h1>Moheji Token (MOJ)</h1>
+  <p>
     An innovative meme token born from Japanese humor and blockchain technology.<br />
     Built on Solana, Moheji is both playful and practical.<br />
     Inspired by the iconic Japanese emoticon “Henohenomoheji,”<br />
@@ -124,57 +114,9 @@
     Jump into the world of Moheji and be part of a new cultural and crypto movement.
   </p>
 
-  <!-- Language Switcher -->
-  <select id="language-select" onchange="changeLanguage(this.value)">
-    <option value="en">English</option>
-    <!-- 日本語は除外 -->
-    <option value="zh">中文</option>
-    <option value="ko">한국어</option>
-    <option value="es">Español</option>
-    <option value="fr">Français</option>
-    <option value="de">Deutsch</option>
-    <option value="it">Italiano</option>
-    <option value="pt">Português</option>
-    <option value="ru">Русский</option>
-    <option value="ar">العربية</option>
-    <option value="hi">हिन्दी</option>
-    <option value="bn">বাংলা</option>
-    <option value="tr">Türkçe</option>
-    <option value="vi">Tiếng Việt</option>
-    <option value="th">ไทย</option>
-    <option value="pl">Polski</option>
-    <option value="nl">Nederlands</option>
-    <option value="sv">Svenska</option>
-    <option value="cs">Čeština</option>
-    <option value="uk">Українська</option>
-    <option value="ro">Română</option>
-    <option value="hu">Magyar</option>
-    <option value="el">Ελληνικά</option>
-    <option value="he">עברית</option>
-    <option value="id">Bahasa Indonesia</option>
-    <option value="ms">Bahasa Melayu</option>
-    <option value="fa">فارسی</option>
-    <option value="fi">Suomi</option>
-    <option value="no">Norsk</option>
-    <option value="da">Dansk</option>
-    <option value="sr">Српски</option>
-    <option value="sk">Slovenčina</option>
-    <option value="hr">Hrvatski</option>
-    <option value="lt">Lietuvių</option>
-    <option value="lv">Latviešu</option>
-    <option value="et">Eesti</option>
-    <option value="bg">Български</option>
-    <option value="sl">Slovenščina</option>
-    <option value="mt">Malti</option>
-    <option value="is">Íslenska</option>
-    <option value="ga">Gaeilge</option>
-    <option value="eu">Euskara</option>
-    <option value="af">Afrikaans</option>
-  </select>
-
   <!-- Token Supply Section with Progress Bar -->
+  <p>Current Supply: <strong><span id="supply">Loading...</span> MOJ</strong></p>
   <p>
-    Current Supply: <strong><span id="supply">Loading...</span> MOJ</strong><br />
     Max Supply: <strong>1,000,000,000 MOJ</strong><br />
     Burned: <strong><span id="burned">Loading...</span> MOJ</strong><br />
     Circulating: <strong><span id="percent">Loading...</span></strong>
@@ -222,10 +164,8 @@
       }
     }
     fetchSupply();
-
-    // 多言語対応データ
-    const translations = {
-      en: {
-        title:
+  </script>
+</body>
+</html>
 
 
