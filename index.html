@@ -72,7 +72,6 @@
       font-size: 12px;
       color: #666;
     }
-
     .progress-container {
       width: 100%;
       max-width: 400px;
@@ -82,14 +81,12 @@
       overflow: hidden;
       height: 16px;
     }
-
     .progress-bar {
       height: 100%;
       width: 0%;
       background: linear-gradient(to right, #4CAF50 0%, #FFC107 70%, #F44336 100%);
       transition: width 0.6s ease;
     }
-
     /* Responsive */
     @media (max-width: 480px) {
       h1 {
@@ -101,7 +98,6 @@
         min-width: 140px;
       }
     }
-
     /* Language selector */
     #language-select {
       margin: 20px auto;
@@ -188,42 +184,4 @@
     <a href="https://x.com/mohejicoin" target="_blank" rel="noopener noreferrer">X (Twitter)</a>
     <a href="https://solscan.io/token/HJwToCxFFmtnYGZMQa7rZwHAMG2evdbdXAbbQr1Jpump" target="_blank" rel="noopener noreferrer">View on Solscan</a>
     <a href="https://www.dropbox.com/scl/fi/4mdi4afbljsh2yl0cpa9b/moheji.pdf?rlkey=ean496qcriakyt9bliv83cgs6&st=9zb8sbto&dl=0" target="_blank" rel="noopener noreferrer">White Paper</a>
-    <a href="https://pump.fun/coin/HJwToCxFFmtnYGZMQa7rZwHAMG2evdbdXAbbQr1Jpump" target="_blank" rel="noopener noreferrer">Get MOJ Now</a>
-  </div>
-
-  <!-- Footer -->
-  <footer>
-    &copy; 2025 Moheji Project. All rights reserved.
-  </footer>
-
-  <!-- Script to fetch and display supply -->
-  <script>
-    async function fetchSupply() {
-      try {
-        const res = await fetch('https://raw.githubusercontent.com/mohejicoin/moheji-api/main/moj-supply.json');
-        if (!res.ok) throw new Error('Failed to fetch supply data');
-        const data = await res.json();
-
-        const maxSupply = 1000000000;
-        const currentSupply = data.supply;
-        const burned = maxSupply - currentSupply;
-        const percent = (currentSupply / maxSupply) * 100;
-
-        document.getElementById('supply').textContent = currentSupply.toLocaleString(undefined, { maximumFractionDigits: 2 });
-        document.getElementById('burned').textContent = burned.toLocaleString(undefined, { maximumFractionDigits: 2 });
-        document.getElementById('percent').textContent = percent.toFixed(2) + '%';
-        document.getElementById('progress-bar').style.width = percent + '%';
-
-      } catch (error) {
-        document.getElementById('supply').textContent = 'Unavailable';
-        document.getElementById('burned').textContent = 'Unavailable';
-        document.getElementById('percent').textContent = 'Unavailable';
-        console.error('Error fetching supply:', error);
-      }
-    }
-    fetchSupply();
-
-    // 多言語対応データ
-    const translations = {
-      en: {
-        title:
+    <a href="https://pump.fun/coin/HJ
