@@ -12,8 +12,8 @@ This file records all confirmed donations to the Moheji project's official donat
 
 | Date        | Donor (Optional)      |  Amount (MOJ or SOL) | Transaction ID                             | Notes                  |
 |-------------|-----------------------|----------------------|--------------------------------------------|------------------------|
-| Jan.dd,yyyy | Anonymous             |***** SOL             | [TxHash](https://solscan.io/tx/xxxxxxxx)   | Thank you for support! |
-| Feb.dd,yyyy | Anonymous             |***** MOJ             | [TxHash](https://solscan.io/tx/yyyyyyyy)   | First donation         |
+| Jan.dd,yyyy | moheji             |***** SOL             | [TxHash](https://solscan.io/tx/xxxxxxxx)   | Thank you for support! |
+| Feb.dd,yyyy | moheji             |***** MOJ             | [TxHash](https://solscan.io/tx/yyyyyyyy)   | First donation         |
 |             |                       |                      |                                            |                        |
 
 ---
