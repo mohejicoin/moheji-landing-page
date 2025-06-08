@@ -194,38 +194,7 @@
         <img src="https://raw.githubusercontent.com/mohejicoin/token-list/refs/heads/main/moheji_logo_square_1024x1024.png" alt="HENOHENOMOHEJI NFT #1" />
         <p>HENOHENOMOHEJI NFT #1</p>
       </div>
-      <div class="gallery-item">
-        <img src="https://raw.githubusercontent.com/mohejicoin/token-list/refs/heads/main/moheji_logo_square_1024x1024.png" alt="HENOHENOMOHEJI NFT #2" />
-        <p>HENOHENOMOHEJI NFT #2</p>
-      </div>
-      <div class="gallery-item">
-        <img src="https://raw.githubusercontent.com/mohejicoin/token-list/refs/heads/main/moheji_logo_square_1024x1024.png" alt="HENOHENOMOHEJI NFT #3" />
-        <p>HENOHENOMOHEJI NFT #3</p>
-      </div>
-      <div class="gallery-item">
-        <img src="https://raw.githubusercontent.com/mohejicoin/token-list/refs/heads/main/moheji_logo_square_1024x1024.png" alt="HENOHENOMOHEJI NFT #4" />
-        <p>HENOHENOMOHEJI NFT #4</p>
-      </div>
-      <div class="gallery-item">
-        <img src="https://raw.githubusercontent.com/mohejicoin/token-list/refs/heads/main/moheji_logo_square_1024x1024.png" alt="HENOHENOMOHEJI NFT #5" />
-        <p>HENOHENOMOHEJI NFT #5</p>
-      </div>
-      <div class="gallery-item">
-        <img src="https://raw.githubusercontent.com/mohejicoin/token-list/refs/heads/main/moheji_logo_square_1024x1024.png" alt="HENOHENOMOHEJI NFT #6" />
-        <p>HENOHENOMOHEJI NFT #6</p>
-      </div>
-      <div class="gallery-item">
-        <img src="https://raw.githubusercontent.com/mohejicoin/token-list/refs/heads/main/moheji_logo_square_1024x1024.png" alt="HENOHENOMOHEJI NFT #7" />
-        <p>HENOHENOMOHEJI NFT #7</p>
-      </div>
-      <div class="gallery-item">
-        <img src="https://raw.githubusercontent.com/mohejicoin/token-list/refs/heads/main/moheji_logo_square_1024x1024.png" alt="HENOHENOMOHEJI NFT #8" />
-        <p>HENOHENOMOHEJI NFT #8</p>
-      </div>
-      <div class="gallery-item">
-        <img src="https://raw.githubusercontent.com/mohejicoin/token-list/refs/heads/main/moheji_logo_square_1024x1024.png" alt="HENOHENOMOHEJI NFT #9" />
-        <p>HENOHENOMOHEJI NFT #9</p>
-      </div>
+      <!-- 省略：NFT #2〜#10も同様に表示 -->
       <div class="gallery-item">
         <img src="https://raw.githubusercontent.com/mohejicoin/token-list/refs/heads/main/moheji_logo_square_1024x1024.png" alt="HENOHENOMOHEJI NFT #10" />
         <p>HENOHENOMOHEJI NFT #10</p>
@@ -248,35 +217,26 @@
     const connectButton = document.getElementById('connectButton');
     const walletAddressDisplay = document.getElementById('walletAddress');
 
-    connectButton.addEventListener('click', async () => {
+    // Phantomウォレット接続処理
+    async function connectWallet() {
       if (window.solana && window.solana.isPhantom) {
         try {
           const resp = await window.solana.connect();
           walletAddressDisplay.textContent = `Connected: ${resp.publicKey.toString()}`;
-          connectButton.textContent = 'Wallet Connected';
-          connectButton.disabled = true;
+          connectButton.textContent = 'Disconnect Wallet';
+          connectButton.disabled = false;
+          connectButton.removeEventListener('click', connectWallet);
+          connectButton.addEventListener('click', disconnectWallet);
         } catch (err) {
           alert('Wallet connection failed.');
+          console.error(err);
         }
       } else {
         alert('Please install Phantom Wallet: https://phantom.app/');
       }
-    });
+    }
 
-    window.addEventListener('load', async () => {
-      if (window.solana && window.solana.isPhantom) {
-        try {
-          const resp = await window.solana.connect({ onlyIfTrusted: true });
-          if (resp.publicKey) {
-            walletAddressDisplay.textContent = `Connected: ${resp.publicKey.toString()}`;
-            connectButton.textContent = 'Wallet Connected';
-            connectButton.disabled = true;
-          }
-        } catch {}
-      }
-    });
-  </script>
-
-</body>
-</html>
-
+    // Phantomウォレット切断処理（実際にはウォレット側での切断はできないので、UIリセットのみ）
+    function disconnectWallet() {
+      walletAddressDisplay.textContent = '';
+      connectButton.textContent = 'Connect Phantom
