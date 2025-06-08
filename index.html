@@ -202,7 +202,6 @@
   <section id="wallet-connect" class="center">
     <h2>Connect Your Solana Wallet</h2>
     <button id="connectPhantom">Connect Phantom Wallet</button>
-    <button id="connectWalletConnect">Connect WalletConnect</button>
     <p id="walletAddress"></p>
   </section>
 
@@ -210,13 +209,9 @@
     &copy; 2025 Moheji (MOJ) Project | Built on Solana Blockchain
   </footer>
 
-  <!-- Wallet connection scripts -->
-  <script src="https://cdn.jsdelivr.net/npm/@walletconnect/client@1.7.8/dist/umd/index.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@solana/wallet-adapter-walletconnect@0.16.3/dist/umd/index.min.js"></script>
-
+  <!-- Phantom Wallet接続用スクリプト -->
   <script>
     const connectPhantomBtn = document.getElementById('connectPhantom');
-    const connectWCBtn = document.getElementById('connectWalletConnect');
     const walletAddressDisplay = document.getElementById('walletAddress');
 
     // Phantom Wallet接続処理
@@ -235,32 +230,11 @@
         alert('ウォレット接続に失敗しました。');
       }
     });
-
-    // WalletConnectでのSolana接続処理（簡易サンプル）
-    connectWCBtn.addEventListener('click', async () => {
-      try {
-        const { WalletConnectWalletAdapter } = window['walletAdapterWalletconnect'];
-
-        const walletConnectAdapter = new WalletConnectWalletAdapter({
-          chains: ['solana:mainnet-beta'],
-          qrcode: true,
-        });
-
-        await walletConnectAdapter.connect();
-
-        const pubkey = walletConnectAdapter.publicKey?.toString();
-
-        if(pubkey) {
-          walletAddressDisplay.textContent = `Connected wallet (WalletConnect): ${pubkey}`;
-          connectWCBtn.disabled = true;
-          connectWCBtn.textContent = 'Wallet Connected';
-        }
-      } catch (err) {
-        console.error(err);
-        alert('WalletConnectでの接続に失敗しました。');
-      }
-    });
   </script>
+
+</body>
+</html>
+
 
 </body>
 </html>
