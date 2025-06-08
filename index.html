@@ -83,6 +83,60 @@
       color: #444;
       word-break: break-all;
     }
+
+    /* コミュニティバッジ用 */
+    #community-badges {
+      max-width: 900px;
+      margin: 2rem auto;
+      text-align: center;
+    }
+    #community-badges div {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+    #community-badges a {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.6rem 1rem;
+      border-radius: 12px;
+      font-weight: bold;
+      text-decoration: none;
+      min-width: 120px;
+      justify-content: center;
+      border: 2px solid;
+      transition: background-color 0.3s, color 0.3s;
+    }
+    #community-badges a img {
+      width: 24px;
+      height: 24px;
+    }
+    #community-badges a.twitter {
+      border-color: #1DA1F2;
+      color: #1DA1F2;
+    }
+    #community-badges a.twitter:hover {
+      background-color: #1DA1F2;
+      color: white;
+    }
+    #community-badges a.telegram {
+      border-color: #0088cc;
+      color: #0088cc;
+    }
+    #community-badges a.telegram:hover {
+      background-color: #0088cc;
+      color: white;
+    }
+    #community-badges a.discord {
+      border-color: #5865F2;
+      color: #5865F2;
+    }
+    #community-badges a.discord:hover {
+      background-color: #5865F2;
+      color: white;
+    }
   </style>
 </head>
 <body>
@@ -137,6 +191,25 @@
     </p>
   </section>
 
+  <!-- コミュニティバッジセクション -->
+  <section id="community-badges">
+    <h2>Join Our Community</h2>
+    <div>
+      <a href="https://twitter.com/mohejicoin" target="_blank" rel="noopener noreferrer" class="twitter">
+        <img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="X (Twitter)" />
+        X (Twitter)
+      </a>
+      <a href="https://t.me/mohejicoin" target="_blank" rel="noopener noreferrer" class="telegram">
+        <img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png" alt="Telegram" />
+        Telegram
+      </a>
+      <a href="https://discord.gg/your-discord-invite" target="_blank" rel="noopener noreferrer" class="discord">
+        <img src="https://cdn-icons-png.flaticon.com/512/2111/2111370.png" alt="Discord" />
+        Discord
+      </a>
+    </div>
+  </section>
+
   <section id="wallet-connect" class="center">
     <h2>Connect Your Solana Wallet</h2>
     <button id="connectButton">Connect Phantom Wallet</button>
@@ -182,4 +255,3 @@
 
 </body>
 </html>
-
