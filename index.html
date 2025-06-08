@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Moheji Token - The Meme Token of a New Era</title>
 
-  <!-- SEO Meta Tags -->
-  <meta name="description" content="Moheji Token (MOJ) is a Japanese meme token built on Solana, combining humor and blockchain utility. Join the new era of decentralized fun." />
+  <!-- SEO & Social Media -->
+  <meta name="description" content="Moheji Token (MOJ) is a Japanese meme token built on Solana. Combining humor and blockchain utility for a new era." />
   <meta property="og:title" content="Moheji Token - The Meme Token of a New Era" />
   <meta property="og:description" content="A revolutionary meme token born from Japanese humor and blockchain technology. Built on Solana." />
   <meta property="og:image" content="https://raw.githubusercontent.com/mohejicoin/token-list/refs/heads/main/moheji_logo_square_1024x1024.png" />
@@ -19,7 +19,7 @@
   <link rel="manifest" href="manifest.json" />
   <meta name="theme-color" content="#ffffff" />
 
-  <!-- Google Fonts -->
+  <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet" />
 
   <!-- Styles -->
@@ -137,9 +137,9 @@
     <p>
       An innovative meme token born from Japanese humor and blockchain technology.<br />
       Built on Solana, Moheji is both playful and practical.<br />
-      Inspired by the iconic Japanese emoticon “Henohenomoheji,”<br />
+      Inspired by the iconic Japanese emoticon “へのへのもへじ”,<br />
       it brings a spirit of humor to serious technology.<br />
-      Jump into the world of Moheji and be part of a new cultural and crypto movement.
+      Join the Moheji movement and experience decentralized fun.
     </p>
 
     <!-- Token Supply Info -->
@@ -158,20 +158,18 @@
     <!-- Buttons -->
     <div class="buttons">
       <a href="https://x.com/mohejicoin" target="_blank" rel="noopener noreferrer">X (Twitter)</a>
-      <a href="https://solscan.io/token/HJwToCxFFmtnYGZMQa7rZwHAMG2evdbdXAbbQr1Jpump" target="_blank" rel="noopener noreferrer">View on Solscan</a>
+      <a href="https://solscan.io/token/HJwToCxFFmtnYGZMQa7rZwHAMG2evdbdXAbbQr1Jpump" target="_blank" rel="noopener noreferrer">Solscan</a>
       <a href="https://www.dropbox.com/scl/fi/4mdi4afbljsh2yl0cpa9b/moheji.pdf?rlkey=ean496qcriakyt9bliv83cgs6&st=9zb8sbto&dl=0" target="_blank" rel="noopener noreferrer">White Paper</a>
-      <a href="https://pump.fun/coin/HJwToCxFFmtnYGZMQa7rZwHAMG2evdbdXAbbQr1Jpump" target="_blank" rel="noopener noreferrer">Get MOJ Now</a>
+      <a href="https://pump.fun/coin/HJwToCxFFmtnYGZMQa7rZwHAMG2evdbdXAbbQr1Jpump" target="_blank" rel="noopener noreferrer">Get MOJ</a>
     </div>
 
     <!-- Donation Section -->
     <section id="donation">
       <h2>Support Moheji Development</h2>
-      <p>This project is built with community passion and volunteer efforts.</p>
-      <p>If you'd like to support development, donations are appreciated at the address below:</p>
+      <p>This project is fueled by passion and built by volunteers.</p>
+      <p>Support development by donating to the address below:</p>
       <code>H9YbWjAyDGcBVsunjeV2nhXaSzdLVtLM7n2bW2pDQG31</code>
-      <p style="font-size: 0.8em; color: #777; margin-top: 0.5em;">
-        *Solana network (SOL or MOJ tokens only)
-      </p>
+      <p style="font-size: 0.8em; color: #777;">*Solana network (SOL or MOJ only)</p>
     </section>
   </main>
 
@@ -179,30 +177,28 @@
     &copy; 2025 Moheji Project. All rights reserved.
   </footer>
 
-  <!-- JS for Supply Info -->
+  <!-- JavaScript for dynamic supply -->
   <script>
     async function fetchSupply() {
       try {
-        const res = await fetch('https://raw.githubusercontent.com/mohejicoin/moheji-api/main/moj-supply.json');
-        if (!res.ok) throw new Error('Failed to fetch supply data');
-        const data = await res.json();
+        const response = await fetch('https://raw.githubusercontent.com/mohejicoin/moheji-api/main/moj-supply.json');
+        if (!response.ok) throw new Error('Failed to load supply data');
+        const data = await response.json();
 
-        const maxSupply = 1000000000;
-        const currentSupply = data.supply;
-        const burned = maxSupply - currentSupply;
-        const percent = (currentSupply / maxSupply) * 100;
+        const max = 1_000_000_000;
+        const supply = data.supply;
+        const burned = max - supply;
+        const percent = (supply / max) * 100;
 
-        document.getElementById('supply').textContent = currentSupply.toLocaleString(undefined, { maximumFractionDigits: 2 });
-        document.getElementById('burned').textContent = burned.toLocaleString(undefined, { maximumFractionDigits: 2 });
+        document.getElementById('supply').textContent = supply.toLocaleString();
+        document.getElementById('burned').textContent = burned.toLocaleString();
         document.getElementById('percent').textContent = percent.toFixed(2) + '%';
         document.getElementById('progress-bar').style.width = percent + '%';
-
-      } catch (error) {
-        console.error('Error fetching supply:', error);
-        const fallbackText = 'Unavailable';
-        document.getElementById('supply').textContent = fallbackText;
-        document.getElementById('burned').textContent = fallbackText;
-        document.getElementById('percent').textContent = fallbackText;
+      } catch (e) {
+        console.error('Error loading supply:', e);
+        document.getElementById('supply').textContent = 'Unavailable';
+        document.getElementById('burned').textContent = 'Unavailable';
+        document.getElementById('percent').textContent = 'Unavailable';
       }
     }
 
