@@ -82,10 +82,10 @@
       margin-top: 1rem;
       font-weight: bold;
       color: #444;
-      word-break: break-all;
+      word-break: break-word;
     }
 
-    /* NFT */
+    /* NFT Gallery */
     #nft-gallery {
       max-width: 900px;
       margin: 2rem auto;
@@ -187,7 +187,6 @@
     </p>
   </section>
 
-  <!-- NFTGallery -->
   <section id="nft-gallery">
     <h2>HENOHENOMOHEJI NFT Gallery</h2>
     <div class="gallery-container">
@@ -195,7 +194,7 @@
         <img src="https://raw.githubusercontent.com/mohejicoin/token-list/refs/heads/main/moheji_logo_square_1024x1024.png" alt="HENOHENOMOHEJI NFT #1" />
         <p>HENOHENOMOHEJI NFT #1</p>
       </div>
-      <!-- 他のNFT画像も同様にここに追加可能 -->
+      <!-- 他のNFT画像もここに追加できます -->
     </div>
   </section>
 
@@ -214,7 +213,6 @@
     const connectPhantomBtn = document.getElementById('connectPhantom');
     const walletAddressDisplay = document.getElementById('walletAddress');
 
-    // Phantom Wallet接続処理
     connectPhantomBtn.addEventListener('click', async () => {
       try {
         if (window.solana && window.solana.isPhantom) {
