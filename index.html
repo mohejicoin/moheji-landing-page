@@ -64,6 +64,25 @@
       text-decoration: underline;
       font-weight: bold;
     }
+    #connectButton {
+      background-color: #512da8;
+      color: white;
+      border: none;
+      padding: 0.8rem 1.5rem;
+      font-size: 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    #connectButton:hover:not(:disabled) {
+      background-color: #673ab7;
+    }
+    #walletAddress {
+      margin-top: 1rem;
+      font-weight: bold;
+      color: #444;
+      word-break: break-all;
+    }
   </style>
 </head>
 <body>
@@ -118,9 +137,48 @@
     </p>
   </section>
 
+  <section id="wallet-connect" class="center">
+    <h2>Connect Your Solana Wallet</h2>
+    <button id="connectButton">Connect Phantom Wallet</button>
+    <p id="walletAddress"></p>
+  </section>
+
   <footer>
     &copy; 2025 Moheji (MOJ) Project | Built on Solana Blockchain
   </footer>
+
+  <script>
+    const connectButton = document.getElementById('connectButton');
+    const walletAddressDisplay = document.getElementById('walletAddress');
+
+    connectButton.addEventListener('click', async () => {
+      if (window.solana && window.solana.isPhantom) {
+        try {
+          const resp = await window.solana.connect();
+          walletAddressDisplay.textContent = `Connected: ${resp.publicKey.toString()}`;
+          connectButton.textContent = 'Wallet Connected';
+          connectButton.disabled = true;
+        } catch (err) {
+          alert('Wallet connection failed.');
+        }
+      } else {
+        alert('Please install Phantom Wallet: https://phantom.app/');
+      }
+    });
+
+    window.addEventListener('load', async () => {
+      if (window.solana && window.solana.isPhantom) {
+        try {
+          const resp = await window.solana.connect({ onlyIfTrusted: true });
+          if (resp.publicKey) {
+            walletAddressDisplay.textContent = `Connected: ${resp.publicKey.toString()}`;
+            connectButton.textContent = 'Wallet Connected';
+            connectButton.disabled = true;
+          }
+        } catch {}
+      }
+    });
+  </script>
 
 </body>
 </html>
