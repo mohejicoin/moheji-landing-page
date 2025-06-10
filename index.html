@@ -139,103 +139,87 @@
 
  <footer>
   <p>© 2025 Moheji Token. All rights reserved. Built with culture and code.</p>
-  <p class="glow-emoji">🚀💎🚀</p>
+  <div class="glow-emoji" id="emojiEffect">🚀💎🚀</div>
 </footer>
 
- <style> 
-  .glow-emoji {
+<style>
+.glow-emoji {
   font-size: 2rem;
+  color: #00ffe0;
+  text-align: center;
   margin-top: 0.5rem;
-  color: #00ffea;
   text-shadow:
-    0 0 5px #00ffea,
-    0 0 10px #00ffea,
-    0 0 20px #00ffea,
-    0 0 30px #0ff,
-    0 0 40px #0ff;
-  animation: glowPulse 2.5s ease-in-out infinite;
+    0 0 5px #00ffe0,
+    0 0 10px #00ffe0,
+    0 0 20px #00ffe0;
+  animation: floatGlow 3s ease-in-out infinite;
   display: inline-block;
   transition: transform 0.3s ease;
   cursor: pointer;
 }
 
-.glow-emoji:hover {
-  animation: glowPulseFast 1s ease-in-out infinite;
-  transform: scale(1.2) rotate(15deg);
-}
-
-@keyframes glowPulse {
+@keyframes floatGlow {
   0%, 100% {
+    transform: translateY(0px);
     text-shadow:
-      0 0 5px #00ffea,
-      0 0 10px #00ffea,
-      0 0 20px #00ffea,
-      0 0 30px #0ff,
-      0 0 40px #0ff;
-    color: #00ffea;
+      0 0 5px #00ffe0,
+      0 0 10px #00ffe0,
+      0 0 20px #00ffe0;
   }
   50% {
+    transform: translateY(-5px);
     text-shadow:
-      0 0 10px #00fff0,
-      0 0 20px #00fff0,
-      0 0 30px #0ff,
-      0 0 40px #0ff,
-      0 0 50px #0ff;
-    color: #00fff0;
+      0 0 10px #00ffff,
+      0 0 20px #00ffff,
+      0 0 30px #00ffff;
   }
 }
 
-@keyframes glowPulseFast {
-  0%, 100% {
+/* 激しい動き */
+@keyframes intenseGlow {
+  0% {
+    transform: scale(1) rotate(0deg);
     text-shadow:
-      0 0 10px #00ffea,
-      0 0 20px #00ffea,
-      0 0 30px #00ffea,
-      0 0 40px #0ff,
-      0 0 50px #0ff,
-      0 0 60px #0ff,
-      0 0 70px #0ff;
-    color: #00ffea;
-    transform: rotate(0deg);
+      0 0 10px #00ffff,
+      0 0 20px #00ffff,
+      0 0 40px #00ffff;
   }
   25% {
-    text-shadow:
-      0 0 20px #00fff0,
-      0 0 30px #00fff0,
-      0 0 40px #0ff,
-      0 0 50px #0ff,
-      0 0 60px #0ff,
-      0 0 70px #0ff,
-      0 0 80px #0ff;
-    color: #00fff0;
-    transform: rotate(10deg);
+    transform: scale(1.2) rotate(10deg);
   }
   50% {
-    text-shadow:
-      0 0 30px #00ffea,
-      0 0 40px #00ffea,
-      0 0 50px #00ffea,
-      0 0 60px #0ff,
-      0 0 70px #0ff,
-      0 0 80px #0ff,
-      0 0 90px #0ff;
-    color: #00ffea;
-    transform: rotate(-10deg);
+    transform: scale(1.1) rotate(-10deg);
   }
   75% {
-    text-shadow:
-      0 0 20px #00fff0,
-      0 0 30px #00fff0,
-      0 0 40px #0ff,
-      0 0 50px #0ff,
-      0 0 60px #0ff,
-      0 0 70px #0ff,
-      0 0 80px #0ff;
-    color: #00fff0;
-    transform: rotate(10deg);
+    transform: scale(1.3) rotate(5deg);
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
   }
 }
+
+.glow-emoji.active {
+  animation: intenseGlow 1s ease-in-out;
+}
 </style>
+
+  <script>
+  const emoji = document.getElementById('emojiEffect');
+
+  // モバイル：タップ時に一時的に激しい動き
+  emoji.addEventListener('touchstart', () => {
+    emoji.classList.add('active');
+    setTimeout(() => emoji.classList.remove('active'), 1000);
+  });
+
+  // PC：ホバー時にも適用
+  emoji.addEventListener('mouseenter', () => {
+    emoji.classList.add('active');
+  });
+  emoji.addEventListener('mouseleave', () => {
+    emoji.classList.remove('active');
+  });
+</script>
 
 </body>
 </html>
