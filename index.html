@@ -8,18 +8,9 @@
   <meta name="author" content="Moheji Team" />
   <link rel="icon" href="https://raw.githubusercontent.com/mohejicoin/token-list/main/assets/mainnet/HJwToCxFFmtnYGZMQa7rZwHAMG2evdbdXAbbQr1Jpump/logo.png" type="image/png" />
 
-  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Shrikhand&family=Corben:wght@400;700&display=swap" rel="stylesheet" />
-
-  <!-- Social Meta Tags -->
-  <meta property="og:title" content="Moheji (MOJ) - Culture, Fun, and Utility" />
-  <meta property="og:description" content="A meme yet utility-driven Solana token rooted in Japanese culture." />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="https://raw.githubusercontent.com/mohejicoin/token-list/main/assets/mainnet/HJwToCxFFmtnYGZMQa7rZwHAMG2evdbdXAbbQr1Jpump/logo.png" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:image" content="https://raw.githubusercontent.com/mohejicoin/token-list/main/assets/mainnet/HJwToCxFFmtnYGZMQa7rZwHAMG2evdbdXAbbQr1Jpump/logo.png" />
 
   <style>
     body {
@@ -68,7 +59,6 @@
       75% { transform: translate(3px, -3px) rotate(5deg); }
       100% { transform: translate(0, 0) rotate(0); }
     }
-
     section {
       max-width: 800px;
       margin: auto;
@@ -167,10 +157,60 @@
     .glow-emoji.active {
       animation: intenseGlow 1s ease-in-out;
     }
+
+    /* ---- ここから追加のスタイル ---- */
+    .token-info-box {
+      display: flex;
+      align-items: center;
+      background: #fffbea;
+      border: 2px dashed #ffd700;
+      border-radius: 12px;
+      padding: 1rem;
+      font-size: 0.95rem;
+      word-break: break-word;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: space-between;
+    }
+    .token-info-box span {
+      flex: 1 1 300px;
+      overflow-wrap: anywhere;
+    }
+    #copyBtn {
+      background-color: #ffd700;
+      border: none;
+      padding: 0.5rem 0.8rem;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1.2rem;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    #copyBtn:hover,
+    #copyBtn:active {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+    #toast {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #222;
+      color: #fff;
+      padding: 12px 20px;
+      border-radius: 10px;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      pointer-events: none;
+      z-index: 9999;
+      font-size: 0.95rem;
+    }
+    #toast.show {
+      opacity: 1;
+    }
   </style>
 </head>
-<body>
 
+<body>
   <header>
     <img 
       src="https://raw.githubusercontent.com/mohejicoin/token-list/refs/heads/main/moheji_logo_square_1024x1024.png" 
@@ -197,109 +237,31 @@
     <iframe src="https://birdeye.so/tv-widget/HJwToCxFFmtnYGZMQa7rZwHAMG2evdbdXAbbQr1Jpump?chain=solana&viewMode=pair&chartInterval=1D&chartType=CANDLE&theme=light"></iframe>
   </section>
 
- <section>
-  <h2>Token Info</h2>
-  <ul>
-    <li><strong>Name:</strong> Moheji</li>
-    <li><strong>Symbol:</strong> MOJ</li>
-    <li><strong>Decimals:</strong> 6</li>
-    <li><strong>Total Supply:</strong> 1,000,000,000 MOJ</li>
-    <li>
-      <strong>Mint Address:</strong>
+  <section>
+    <h2>Token Info</h2>
+    <div class="token-info-box">
       <span id="mintAddress">HJwToCxFFmtnYGZMQa7rZwHAMG2evdbdXAbbQr1Jpump</span>
-      <button id="copyBtn" title="Copy Mint Address 📋" style="margin-left: 8px; font-size: 1rem; cursor: pointer;">📋</button>
-    </li>
-  </ul>
-</section>
+      <button id="copyBtn" title="Copy Mint Address">📋</button>
+    </div>
+  </section>
 
-  <script>
-  const copyBtn = document.getElementById('copyBtn');
-  const mintAddress = document.getElementById('mintAddress');
-
-  copyBtn.addEventListener('click', () => {
-    navigator.clipboard.writeText(mintAddress.innerText)
-      .then(() => {
-        // 成功時：ボタンを一時的に✅に変更
-        const original = copyBtn.textContent;
-        copyBtn.textContent = '✅';
-        copyBtn.disabled = true;
-        setTimeout(() => {
-          copyBtn.textContent = original;
-          copyBtn.disabled = false;
-        }, 1500);
-      })
-      .catch(err => {
-        console.error('Copy failed:', err);
-        copyBtn.textContent = '❌';
-        setTimeout(() => {
-          copyBtn.textContent = '📋';
-        }, 1500);
-      });
-  });
-</script>
+  <div id="toast">Copied!</div>
 
   <section class="socials">
-  <h2>Follow Us</h2>
-  <a href="https://twitter.com/mohejicoin" target="_blank" rel="noopener">
-    <img src="icons/x.svg" alt="X" class="social-icon" />
-  </a>
-  <a href="https://discord.com/invite/MwkRdfyjR9" target="_blank" rel="noopener">
-    <img src="icons/discord.svg" alt="Discord" class="social-icon" />
-  </a>
-  <a href="https://t.me/moheji_coin" target="_blank" rel="noopener">
-    <img src="icons/telegram.svg" alt="Telegram" class="social-icon" />
-  </a>
-  <a href="https://github.com/mohejicoin" target="_blank" rel="noopener">
-    <img src="icons/github.svg" alt="GitHub" class="social-icon" />
-  </a>
-</section>
-
-<style>
-  @keyframes wiggle {
-  0%   { transform: translateX(0); }
-  25%  { transform: translateX(-5px); }
-  50%  { transform: translateX(5px); }
-  75%  { transform: translateX(-3px); }
-  100% { transform: translateX(0); }
-}
-
-.social-icon {
-  transition: transform 0.3s ease;
-  cursor: pointer;
-  display: inline-block;
-}
-
-/* ホバー時にもwiggleアニメーションを追加 */
-.social-icon:hover,
-.social-icon.animate {
-  animation: wiggle 0.4s ease;
-}
-</style>
-
-<script>
-  document.querySelectorAll('.socials a').forEach(anchor => {
-    const img = anchor.querySelector('.social-icon');
-    const href = anchor.href;
-
-    anchor.addEventListener('click', e => {
-      e.preventDefault();
-      img.classList.add('animate');
-
-      setTimeout(() => {
-        window.open(href, '_blank');
-        img.classList.remove('animate');
-      }, 400);
-    });
-
-    // スマホタップ時のアニメーション用
-    anchor.addEventListener('touchstart', () => {
-      img.classList.add('animate');
-    });
-    anchor.addEventListener('touchend', () => {
-      setTimeout(() => img.classList.remove('animate'), 400);
-    });
-  });
-</script>
+    <h2>Follow Us</h2>
+    <a href="https://twitter.com/mohejicoin" target="_blank" rel="noopener">
+      <img src="icons/x.svg" alt="X" class="social-icon" />
+    </a>
+    <a href="https://discord.com/invite/MwkRdfyjR9" target="_blank" rel="noopener">
+      <img src="icons/discord.svg" alt="Discord" class="social-icon" />
+    </a>
+    <a href="https://t.me/moheji_coin" target="_blank" rel="noopener">
+      <img src="icons/telegram.svg" alt="Telegram" class="social-icon" />
+    </a>
+    <a href="https://github.com/mohejicoin" target="_blank" rel="noopener">
+      <img src="icons/github.svg" alt="GitHub" class="social-icon" />
+    </a>
+  </section>
 
   <footer>
     <p>© 2025 Moheji Token. All rights reserved. Built with culture and code.</p>
@@ -307,41 +269,53 @@
   </footer>
 
   <script>
-    // ロゴアニメーション制御
     const logo = document.getElementById('mohejiLogo');
+    logo.addEventListener('mouseenter', () => logo.classList.add('active'));
+    logo.addEventListener('mouseleave', () => logo.classList.remove('active'));
+    logo.addEventListener('touchstart', () => logo.classList.add('active'));
+    logo.addEventListener('touchend', () => setTimeout(() => logo.classList.remove('active'), 600));
 
-    logo.addEventListener('mouseenter', () => {
-      logo.classList.add('active');
-    });
-    logo.addEventListener('mouseleave', () => {
-      logo.classList.remove('active');
-    });
-    logo.addEventListener('touchstart', () => {
-      logo.classList.add('active');
-    });
-    logo.addEventListener('touchend', () => {
-      setTimeout(() => logo.classList.remove('active'), 600);
-    });
-
-    // 🚀💎🚀激しい光り方制御
     const emoji = document.getElementById('emojiEffect');
-    emoji.addEventListener('mouseenter', () => {
-      emoji.classList.add('active');
-    });
-    emoji.addEventListener('mouseleave', () => {
-      emoji.classList.remove('active');
-    });
+    emoji.addEventListener('mouseenter', () => emoji.classList.add('active'));
+    emoji.addEventListener('mouseleave', () => emoji.classList.remove('active'));
     emoji.addEventListener('touchstart', () => {
       emoji.classList.add('active');
       setTimeout(() => emoji.classList.remove('active'), 1000);
     });
+
+    const copyBtn = document.getElementById('copyBtn');
+    const mintAddress = document.getElementById('mintAddress');
+    const toast = document.getElementById('toast');
+
+    copyBtn.addEventListener('click', () => {
+      navigator.clipboard.writeText(mintAddress.innerText)
+        .then(() => showToast("Mint address copied!"))
+        .catch(() => showToast("Copy failed"));
+    });
+
+    function showToast(message) {
+      toast.textContent = message;
+      toast.classList.add("show");
+      setTimeout(() => toast.classList.remove("show"), 2000);
+    }
+
+    document.querySelectorAll('.socials a').forEach(anchor => {
+      const img = anchor.querySelector('.social-icon');
+      const href = anchor.href;
+
+      anchor.addEventListener('click', e => {
+        e.preventDefault();
+        img.classList.add('animate');
+        setTimeout(() => {
+          window.open(href, '_blank');
+          img.classList.remove('animate');
+        }, 400);
+      });
+
+      anchor.addEventListener('touchstart', () => img.classList.add('animate'));
+      anchor.addEventListener('touchend', () => setTimeout(() => img.classList.remove('animate'), 400));
+    });
   </script>
-</body>
-</html>
-
-
-
-
 </body>
 </html>
 
