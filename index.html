@@ -3,26 +3,18 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="Official page for Moheji Token (MOJ) on Solana. Meme meets utility." />
+  <meta name="description" content="Official page for Moheji Token (MOJ) on Solana.">
   <title>Moheji (MOJ) Token</title>
 
-  <!-- OGP / Twitter Cards -->
-  <meta property="og:title" content="Moheji Token (MOJ) - Meme meets Utility" />
-  <meta property="og:description" content="Moheji is a meme-inspired token on Solana bringing culture and utility together." />
-  <meta property="og:image" content="https://raw.githubusercontent.com/mohejicoin/token-list/main/assets/mainnet/HJwToCxFFmtnYGZMQa7rZwHAMG2evdbdXAbbQr1Jpump/logo.png" />
-  <meta property="og:url" content="https://yourdomain.com" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:site" content="@mohejicoin" />
-  <meta name="twitter:title" content="Moheji Token (MOJ)" />
-  <meta name="twitter:description" content="Fun Meets Function on Solana" />
-  <meta name="twitter:image" content="https://raw.githubusercontent.com/mohejicoin/token-list/main/assets/mainnet/HJwToCxFFmtnYGZMQa7rZwHAMG2evdbdXAbbQr1Jpump/logo.png" />
-
-  <!-- Favicon & Apple Icons -->
+  <!-- ファビコン -->
   <link rel="icon" href="apple-touch-icon.png" type="image/png" sizes="180x180" />
+
+  <!-- モバイルホーム画面用アイコン -->
   <link rel="apple-touch-icon" href="apple-touch-icon.png" sizes="180x180" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <meta name="theme-color" content="#ffffff" />
+  <meta name="background-color" content="#ffffff" />
 
   <style>
     body {
@@ -33,23 +25,17 @@
       padding: 0;
     }
     header {
-      background: linear-gradient(to right, #ffcc00, #ffd740);
-      padding: 3rem 2rem;
+      background-color: #ffcc00;
+      padding: 2rem;
       text-align: center;
     }
     header h1 {
-      font-size: 3rem;
-      margin: 1rem 0 0.5rem;
+      font-size: 2.5rem;
+      margin: 0;
     }
     header p {
-      font-size: 1.5rem;
-      margin-bottom: 1.5rem;
-    }
-    .logo {
-      width: 100px;
-      border-radius: 50%;
-      margin: 1rem auto;
-      display: block;
+      font-size: 1.2rem;
+      margin: 0.5rem 0 0;
     }
     section {
       padding: 2rem;
@@ -75,6 +61,20 @@
       padding: 1rem;
       font-size: 0.9rem;
     }
+    .logo {
+      width: 100px;
+      border-radius: 50%;
+      margin: 1rem auto;
+      display: block;
+    }
+    .center {
+      text-align: center;
+    }
+    a.contract-link {
+      color: #007bff;
+      text-decoration: underline;
+      font-weight: bold;
+    }
     button {
       background-color: #512da8;
       color: white;
@@ -95,6 +95,14 @@
       color: #444;
       word-break: break-word;
     }
+
+    /* NFT Gallery */
+    #nft-gallery {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+
     .gallery-container {
       display: flex;
       overflow-x: auto;
@@ -103,6 +111,16 @@
       scrollbar-width: thin;
       scrollbar-color: #888 transparent;
     }
+
+    .gallery-container::-webkit-scrollbar {
+      height: 8px;
+    }
+
+    .gallery-container::-webkit-scrollbar-thumb {
+      background-color: #888;
+      border-radius: 4px;
+    }
+
     .gallery-item {
       min-width: 180px;
       flex-shrink: 0;
@@ -112,32 +130,19 @@
       padding: 0.5rem;
       text-align: center;
     }
+
     .gallery-item img {
       width: 100%;
       border-radius: 12px;
       object-fit: cover;
       aspect-ratio: 1 / 1;
     }
-    .sns-links {
-      display: flex;
-      justify-content: center;
-      gap: 16px;
-      padding: 1rem;
-    }
-    .sns-links img {
-      width: 32px;
-      height: 32px;
-      filter: grayscale(100%);
-      transition: filter 0.3s ease;
-      cursor: pointer;
-    }
-    .sns-links a:hover img {
-      filter: none;
-    }
-    @media (max-width: 600px) {
-      header h1 { font-size: 2rem; }
-      header p { font-size: 1rem; }
-      button { font-size: 0.9rem; padding: 0.6rem 1.2rem; }
+
+    .gallery-item p {
+      margin: 0.5rem 0 0;
+      font-size: 0.9rem;
+      color: #555;
+      font-weight: 600;
     }
   </style>
 </head>
@@ -146,8 +151,7 @@
   <header>
     <img src="https://raw.githubusercontent.com/mohejicoin/token-list/main/assets/mainnet/HJwToCxFFmtnYGZMQa7rZwHAMG2evdbdXAbbQr1Jpump/logo.png" alt="MOJ Logo" class="logo" />
     <h1>Moheji Token (MOJ)</h1>
-    <p>🟡 Fun Meets Function on Solana 🟡</p>
-    <a href="#chart"><button>Buy on Birdeye</button></a>
+    <p>🟡 The fun and functional token on Solana 🟡</p>
   </header>
 
   <section>
@@ -159,12 +163,22 @@
 
   <section id="intro-video">
     <h2>Moheji Token Introduction Video</h2>
-    <iframe src="https://www.youtube.com/embed/wVUs1uY1fdU" title="Moheji Token Introduction" loading="lazy" allowfullscreen></iframe>
+    <iframe
+      src="https://www.youtube.com/embed/wVUs1uY1fdU"
+      title="Moheji Token Introduction"
+      loading="lazy"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen>
+    </iframe>
   </section>
 
   <section id="chart">
     <h2>MOJ Price Chart</h2>
-    <iframe src="https://birdeye.so/tv-widget/HJwToCxFFmtnYGZMQa7rZwHAMG2evdbdXAbbQr1Jpump?chain=solana&viewMode=pair&chartInterval=1D&chartType=CANDLE&theme=light" loading="lazy" allowfullscreen></iframe>
+    <iframe
+      src="https://birdeye.so/tv-widget/HJwToCxFFmtnYGZMQa7rZwHAMG2evdbdXAbbQr1Jpump?chain=solana&viewMode=pair&chartInterval=1D&chartType=CANDLE&theme=light"
+      loading="lazy"
+      allowfullscreen>
+    </iframe>
   </section>
 
   <section>
@@ -179,9 +193,19 @@
   </section>
 
   <section id="contract">
-    <h2>Smart Contract</h2>
+    <h2>Smart Contract Link</h2>
     <p>
-      <a href="https://solscan.io/token/HJwToCxFFmtnYGZMQa7rZwHAMG2evdbdXAbbQr1Jpump" target="_blank" rel="noopener noreferrer" class="contract-link">View on Solscan</a>
+      Check the Moheji (MOJ) token smart contract on Solana blockchain explorer:
+    </p>
+    <p>
+      <a 
+        href="https://solscan.io/token/HJwToCxFFmtnYGZMQa7rZwHAMG2evdbdXAbbQr1Jpump" 
+        target="_blank" 
+        rel="noopener noreferrer" 
+        class="contract-link"
+      >
+        View MOJ Smart Contract on Solscan
+      </a>
     </p>
   </section>
 
@@ -189,13 +213,10 @@
     <h2>HENOHENOMOHEJI NFT Gallery</h2>
     <div class="gallery-container">
       <div class="gallery-item">
-        <img src="nft/moheji1.png" alt="NFT #1" />
-        <p>HENOHENOMOHEJI #1</p>
+        <img src="https://raw.githubusercontent.com/mohejicoin/token-list/refs/heads/main/moheji_logo_square_1024x1024.png" alt="HENOHENOMOHEJI NFT #1" />
+        <p>HENOHENOMOHEJI NFT #1</p>
       </div>
-      <div class="gallery-item">
-        <img src="nft/moheji2.png" alt="NFT #2" />
-        <p>HENOHENOMOHEJI #2</p>
-      </div>
+      <!-- 他のNFT画像もここに追加できます -->
     </div>
   </section>
 
@@ -205,23 +226,54 @@
     <p id="walletAddress"></p>
   </section>
 
-  <section class="center">
-    <h2>Join the Community</h2>
-    <div class="sns-links">
-      <a href="https://twitter.com/mohejicoin" target="_blank"><img src="icons/x.svg" alt="X" /></a>
-      <a href="https://discord.com/invite/MwkRdfyjR9" target="_blank"><img src="icons/discord.svg" alt="Discord" /></a>
-      <a href="https://t.me/moheji_coin" target="_blank"><img src="icons/telegram.svg" alt="Telegram" /></a>
-      <a href="https://github.com/mohejicoin" target="_blank"><img src="icons/github.svg" alt="GitHub" /></a>
-    </div>
-  </section>
+<!-- HTML -->
+<section class="sns-links">
+  <a href="https://twitter.com/mohejicoin" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)">
+    <img src="icons/x.svg" alt="X (Twitter)" />
+  </a>
+  <a href="https://discord.com/invite/MwkRdfyjR9" target="_blank" rel="noopener noreferrer" aria-label="Discord">
+    <img src="icons/discord.svg" alt="Discord" />
+  </a>
+  <a href="https://t.me/moheji_coin" target="_blank" rel="noopener noreferrer" aria-label="Telegram">
+    <img src="icons/telegram.svg" alt="Telegram" />
+  </a>
+  <a href="https://github.com/mohejicoin" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+    <img src="icons/github.svg" alt="GitHub" />
+  </a>
+</section>
 
+<!-- CSS -->
+<style>
+  .sns-links {
+    display: flex;
+    gap: 16px; /* アイコン間のスペース */
+    align-items: center;
+  }
+
+  .sns-links img {
+    width: 32px;
+    height: 32px;
+    filter: grayscale(100%);
+    transition: filter 0.3s ease;
+    cursor: pointer;
+  }
+
+  .sns-links a:hover img,
+  .sns-links a:focus img {
+    filter: none; /* ホバー or フォーカス時にカラー表示 */
+  }
+</style>
+
+  
   <footer>
     &copy; 2025 Moheji (MOJ) Project | Built on Solana Blockchain
   </footer>
 
+  <!-- Phantom Wallet接続用スクリプト -->
   <script>
     const connectPhantomBtn = document.getElementById('connectPhantom');
     const walletAddressDisplay = document.getElementById('walletAddress');
+
     connectPhantomBtn.addEventListener('click', async () => {
       try {
         if (window.solana && window.solana.isPhantom) {
@@ -230,7 +282,7 @@
           connectPhantomBtn.disabled = true;
           connectPhantomBtn.textContent = 'Wallet Connected';
         } else {
-          alert('Phantom Wallet not found, please install it.');
+          alert('Phantom Wallet not found, please install it in your browser.');
         }
       } catch (err) {
         console.error(err);
