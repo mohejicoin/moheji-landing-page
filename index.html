@@ -137,24 +137,26 @@
     <a href="https://github.com/mohejicoin" target="_blank"><img src="icons/github.svg" alt="GitHub"></a>
   </section>
 
-  <footer>
-  <p>© 2025 Moheji Token. All rights reserved. </p>
-  <p style="font-size: 1.5rem;">🚀💎🚀</p>
+ <footer>
+  <p>© 2025 Moheji Token. All rights reserved. Built with culture and code.</p>
+  <p class="glow-emoji">🚀💎🚀</p>
 </footer>
-footer {
-  background: linear-gradient(270deg, #222, #512da8, #673ab7, #222);
-  background-size: 800% 800%;
-  animation: gradientBG 15s ease infinite;
+
+ <style> 
+  footer {
+  background: linear-gradient(270deg, #222, #444, #222);
+  background-size: 600% 600%;
+  animation: gradientShift 20s ease infinite;
   color: #eee;
   text-align: center;
-  padding: 2rem 1rem;
+  padding: 1.5rem 1rem;
   font-size: 0.9rem;
   line-height: 1.6;
   position: relative;
   overflow: hidden;
 }
 
-@keyframes gradientBG {
+@keyframes gradientShift {
   0% {
     background-position: 0% 50%;
   }
@@ -169,28 +171,37 @@ footer {
 .glow-emoji {
   font-size: 2rem;
   margin-top: 0.5rem;
-  animation: glow 2s ease-in-out infinite alternate;
-  filter: drop-shadow(0 0 6px #ffcc00);
+  color: #00ffea;
+  text-shadow:
+    0 0 5px #00ffea,
+    0 0 10px #00ffea,
+    0 0 20px #00ffea,
+    0 0 30px #0ff,
+    0 0 40px #0ff;
+  animation: glowPulse 2.5s ease-in-out infinite;
 }
 
-@keyframes glow {
-  from {
+@keyframes glowPulse {
+  0%, 100% {
     text-shadow:
-      0 0 5px #ffcc00,
-      0 0 10px #ffcc00,
-      0 0 20px #ffcc00,
-      0 0 30px #ffcc00,
-      0 0 40px #ffcc00;
+      0 0 5px #00ffea,
+      0 0 10px #00ffea,
+      0 0 20px #00ffea,
+      0 0 30px #0ff,
+      0 0 40px #0ff;
+    color: #00ffea;
   }
-  to {
+  50% {
     text-shadow:
-      0 0 10px #ffe066,
-      0 0 20px #ffe066,
-      0 0 30px #ffe066,
-      0 0 40px #ffe066,
-      0 0 50px #ffe066;
+      0 0 10px #00fff0,
+      0 0 20px #00fff0,
+      0 0 30px #0ff,
+      0 0 40px #0ff,
+      0 0 50px #0ff;
+    color: #00fff0;
   }
 }
+</style>
 
 </body>
 </html>
