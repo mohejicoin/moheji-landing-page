@@ -209,12 +209,64 @@
   </section>
 
   <section class="socials">
-    <h2>Follow Us</h2>
-    <a href="https://twitter.com/mohejicoin" target="_blank" rel="noopener"><img src="icons/x.svg" alt="X"></a>
-    <a href="https://discord.com/invite/MwkRdfyjR9" target="_blank" rel="noopener"><img src="icons/discord.svg" alt="Discord"></a>
-    <a href="https://t.me/moheji_coin" target="_blank" rel="noopener"><img src="icons/telegram.svg" alt="Telegram"></a>
-    <a href="https://github.com/mohejicoin" target="_blank" rel="noopener"><img src="icons/github.svg" alt="GitHub"></a>
-  </section>
+  <h2>Follow Us</h2>
+  <a href="https://twitter.com/mohejicoin" target="_blank" rel="noopener">
+    <img src="icons/x.svg" alt="X" class="social-icon" />
+  </a>
+  <a href="https://discord.com/invite/MwkRdfyjR9" target="_blank" rel="noopener">
+    <img src="icons/discord.svg" alt="Discord" class="social-icon" />
+  </a>
+  <a href="https://t.me/moheji_coin" target="_blank" rel="noopener">
+    <img src="icons/telegram.svg" alt="Telegram" class="social-icon" />
+  </a>
+  <a href="https://github.com/mohejicoin" target="_blank" rel="noopener">
+    <img src="icons/github.svg" alt="GitHub" class="social-icon" />
+  </a>
+</section>
+
+<style>
+  @keyframes wiggle {
+    0%   { transform: translateX(0); }
+    25%  { transform: translateX(-5px); }
+    50%  { transform: translateX(5px); }
+    75%  { transform: translateX(-3px); }
+    100% { transform: translateX(0); }
+  }
+
+  .social-icon {
+    transition: transform 0.3s ease;
+    cursor: pointer;
+    display: inline-block;
+  }
+  .social-icon.animate {
+    animation: wiggle 0.4s ease;
+  }
+</style>
+
+<script>
+  document.querySelectorAll('.socials a').forEach(anchor => {
+    const img = anchor.querySelector('.social-icon');
+    const href = anchor.href;
+
+    anchor.addEventListener('click', e => {
+      e.preventDefault();
+      img.classList.add('animate');
+
+      setTimeout(() => {
+        window.open(href, '_blank');
+        img.classList.remove('animate');
+      }, 400);
+    });
+
+    // スマホタップ時のアニメーション用
+    anchor.addEventListener('touchstart', () => {
+      img.classList.add('animate');
+    });
+    anchor.addEventListener('touchend', () => {
+      setTimeout(() => img.classList.remove('animate'), 400);
+    });
+  });
+</script>
 
   <footer>
     <p>© 2025 Moheji Token. All rights reserved. Built with culture and code.</p>
