@@ -143,32 +143,7 @@
 </footer>
 
  <style> 
-  footer {
-  background: linear-gradient(270deg, #222, #444, #222);
-  background-size: 600% 600%;
-  animation: gradientShift 20s ease infinite;
-  color: #eee;
-  text-align: center;
-  padding: 1.5rem 1rem;
-  font-size: 0.9rem;
-  line-height: 1.6;
-  position: relative;
-  overflow: hidden;
-}
-
-@keyframes gradientShift {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
-.glow-emoji {
+  .glow-emoji {
   font-size: 2rem;
   margin-top: 0.5rem;
   color: #00ffea;
@@ -179,6 +154,14 @@
     0 0 30px #0ff,
     0 0 40px #0ff;
   animation: glowPulse 2.5s ease-in-out infinite;
+  display: inline-block;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.glow-emoji:hover {
+  animation: glowPulseFast 1s ease-in-out infinite;
+  transform: scale(1.2) rotate(15deg);
 }
 
 @keyframes glowPulse {
@@ -199,6 +182,57 @@
       0 0 40px #0ff,
       0 0 50px #0ff;
     color: #00fff0;
+  }
+}
+
+@keyframes glowPulseFast {
+  0%, 100% {
+    text-shadow:
+      0 0 10px #00ffea,
+      0 0 20px #00ffea,
+      0 0 30px #00ffea,
+      0 0 40px #0ff,
+      0 0 50px #0ff,
+      0 0 60px #0ff,
+      0 0 70px #0ff;
+    color: #00ffea;
+    transform: rotate(0deg);
+  }
+  25% {
+    text-shadow:
+      0 0 20px #00fff0,
+      0 0 30px #00fff0,
+      0 0 40px #0ff,
+      0 0 50px #0ff,
+      0 0 60px #0ff,
+      0 0 70px #0ff,
+      0 0 80px #0ff;
+    color: #00fff0;
+    transform: rotate(10deg);
+  }
+  50% {
+    text-shadow:
+      0 0 30px #00ffea,
+      0 0 40px #00ffea,
+      0 0 50px #00ffea,
+      0 0 60px #0ff,
+      0 0 70px #0ff,
+      0 0 80px #0ff,
+      0 0 90px #0ff;
+    color: #00ffea;
+    transform: rotate(-10deg);
+  }
+  75% {
+    text-shadow:
+      0 0 20px #00fff0,
+      0 0 30px #00fff0,
+      0 0 40px #0ff,
+      0 0 50px #0ff,
+      0 0 60px #0ff,
+      0 0 70px #0ff,
+      0 0 80px #0ff;
+    color: #00fff0;
+    transform: rotate(10deg);
   }
 }
 </style>
