@@ -2,294 +2,144 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="Official page for Moheji Token (MOJ) on Solana.">
-  <title>Moheji (MOJ) Token</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Moheji (MOJ) - Culture, Fun, and Utility</title>
+  <meta name="description" content="Moheji (MOJ) is the meme-utility token on Solana. Inspired by the traditional Japanese 'へのへのもへじ' face." />
+  <meta name="author" content="Moheji Team" />
+  <link rel="icon" href="https://raw.githubusercontent.com/mohejicoin/token-list/main/assets/mainnet/HJwToCxFFmtnYGZMQa7rZwHAMG2evdbdXAbbQr1Jpump/logo.png" type="image/png" />
 
-  <!-- ファビコン -->
-  <link rel="icon" href="apple-touch-icon.png" type="image/png" sizes="180x180" />
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Shrikhand&family=Corben:wght@400;700&display=swap" rel="stylesheet">
 
-  <!-- モバイルホーム画面用アイコン -->
-  <link rel="apple-touch-icon" href="apple-touch-icon.png" sizes="180x180" />
-  <meta name="apple-mobile-web-app-capable" content="yes" />
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-  <meta name="theme-color" content="#ffffff" />
-  <meta name="background-color" content="#ffffff" />
+  <!-- Social Meta Tags -->
+  <meta property="og:title" content="Moheji (MOJ) - Culture, Fun, and Utility" />
+  <meta property="og:description" content="A meme yet utility-driven Solana token rooted in Japanese culture." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://raw.githubusercontent.com/mohejicoin/token-list/main/assets/mainnet/HJwToCxFFmtnYGZMQa7rZwHAMG2evdbdXAbbQr1Jpump/logo.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://raw.githubusercontent.com/mohejicoin/token-list/main/assets/mainnet/HJwToCxFFmtnYGZMQa7rZwHAMG2evdbdXAbbQr1Jpump/logo.png" />
 
   <style>
     body {
-      font-family: 'Arial', sans-serif;
-      background-color: #f9f9f9;
-      color: #333;
       margin: 0;
-      padding: 0;
+      font-family: 'Corben', sans-serif;
+      background-color: #fff8dc;
+      color: #222;
+      line-height: 1.6;
     }
     header {
-      background-color: #ffcc00;
-      padding: 2rem;
+      background-color: #ffe600;
       text-align: center;
+      padding: 4rem 2rem 2rem;
     }
     header h1 {
-      font-size: 2.5rem;
+      font-family: 'Shrikhand', cursive;
+      font-size: 3rem;
       margin: 0;
     }
     header p {
       font-size: 1.2rem;
-      margin: 0.5rem 0 0;
+      margin-top: 0.5rem;
     }
-    section {
-      padding: 2rem;
-      max-width: 900px;
-      margin: auto;
-    }
-    h2 {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-      border-bottom: 2px solid #ddd;
-      padding-bottom: 0.5rem;
-    }
-    iframe {
-      width: 100%;
-      height: 500px;
-      border: none;
-      border-radius: 12px;
-    }
-    footer {
-      background-color: #222;
-      color: #eee;
-      text-align: center;
-      padding: 1rem;
-      font-size: 0.9rem;
-    }
-    .logo {
-      width: 100px;
+    .hero-img {
+      max-width: 160px;
       border-radius: 50%;
       margin: 1rem auto;
       display: block;
     }
-    .center {
-      text-align: center;
+    section {
+      max-width: 800px;
+      margin: auto;
+      padding: 2rem;
     }
-    a.contract-link {
-      color: #007bff;
-      text-decoration: underline;
-      font-weight: bold;
+    h2 {
+      border-left: 5px solid #ffd700;
+      padding-left: 1rem;
+      font-weight: 700;
+      margin-top: 3rem;
     }
-    button {
-      background-color: #512da8;
-      color: white;
-      border: none;
-      padding: 0.8rem 1.5rem;
-      font-size: 1rem;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-      margin: 0.5rem;
-    }
-    button:hover:not(:disabled) {
-      background-color: #673ab7;
-    }
-    #walletAddress {
-      margin-top: 1rem;
-      font-weight: bold;
-      color: #444;
-      word-break: break-word;
-    }
-
-    /* NFT Gallery */
-    #nft-gallery {
-      max-width: 900px;
-      margin: 2rem auto;
-      padding: 0 1rem;
-    }
-
-    .gallery-container {
-      display: flex;
-      overflow-x: auto;
-      gap: 1rem;
-      padding-bottom: 1rem;
-      scrollbar-width: thin;
-      scrollbar-color: #888 transparent;
-    }
-
-    .gallery-container::-webkit-scrollbar {
-      height: 8px;
-    }
-
-    .gallery-container::-webkit-scrollbar-thumb {
-      background-color: #888;
-      border-radius: 4px;
-    }
-
-    .gallery-item {
-      min-width: 180px;
-      flex-shrink: 0;
-      border-radius: 12px;
-      background: #fff;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      padding: 0.5rem;
-      text-align: center;
-    }
-
-    .gallery-item img {
+    iframe {
       width: 100%;
+      height: 450px;
+      border: none;
       border-radius: 12px;
-      object-fit: cover;
-      aspect-ratio: 1 / 1;
+      margin-top: 1rem;
     }
-
-    .gallery-item p {
-      margin: 0.5rem 0 0;
-      font-size: 0.9rem;
-      color: #555;
-      font-weight: 600;
+    ul {
+      padding-left: 1.2rem;
+    }
+    .socials {
+      text-align: center;
+      margin: 2rem 0;
+    }
+    .socials a {
+      margin: 0 10px;
+      display: inline-block;
+    }
+    .socials img {
+      width: 36px;
+      filter: grayscale(100%);
+      transition: filter 0.3s ease;
+    }
+    .socials img:hover {
+      filter: none;
+    }
+    footer {
+      background: #111;
+      color: #eee;
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.85rem;
     }
   </style>
 </head>
 <body>
 
   <header>
-    <img src="https://raw.githubusercontent.com/mohejicoin/token-list/main/assets/mainnet/HJwToCxFFmtnYGZMQa7rZwHAMG2evdbdXAbbQr1Jpump/logo.png" alt="MOJ Logo" class="logo" />
-    <h1>Moheji Token (MOJ)</h1>
-    <p>🟡 The fun and functional token on Solana 🟡</p>
+    <img src="https://raw.githubusercontent.com/mohejicoin/token-list/main/assets/mainnet/HJwToCxFFmtnYGZMQa7rZwHAMG2evdbdXAbbQr1Jpump/logo.png" alt="Moheji Logo" class="hero-img">
+    <h1>Moheji (MOJ)</h1>
+    <p>文化・ユーモア・実用性を兼ね備えたSolanaトークン</p>
   </header>
 
   <section>
-    <h2>What is MOJ?</h2>
-    <p>
-      Moheji (MOJ) is a meme-style yet utility-focused token built on the Solana blockchain. Inspired by the traditional Japanese "へのへのもへじ" face, MOJ combines culture, fun, and utility in one token.
-    </p>
-  </section>
-
-  <section id="intro-video">
-    <h2>Moheji Token Introduction Video</h2>
-    <iframe
-      src="https://www.youtube.com/embed/wVUs1uY1fdU"
-      title="Moheji Token Introduction"
-      loading="lazy"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-      allowfullscreen>
-    </iframe>
-  </section>
-
-  <section id="chart">
-    <h2>MOJ Price Chart</h2>
-    <iframe
-      src="https://birdeye.so/tv-widget/HJwToCxFFmtnYGZMQa7rZwHAMG2evdbdXAbbQr1Jpump?chain=solana&viewMode=pair&chartInterval=1D&chartType=CANDLE&theme=light"
-      loading="lazy"
-      allowfullscreen>
-    </iframe>
+    <h2>About MOJ</h2>
+    <p>Moheji (MOJ) は、日本の「へのへのもへじ」文化をインスピレーションに生まれた、ミームでありながら実用的なSolanaトークンです。楽しく、使えて、世界に広がるユニークな存在。</p>
   </section>
 
   <section>
-    <h2>Token Details</h2>
+    <h2>Intro Video</h2>
+    <iframe src="https://www.youtube.com/embed/wVUs1uY1fdU" title="Moheji Token Introduction"></iframe>
+  </section>
+
+  <section>
+    <h2>Live Chart</h2>
+    <iframe src="https://birdeye.so/tv-widget/HJwToCxFFmtnYGZMQa7rZwHAMG2evdbdXAbbQr1Jpump?chain=solana&viewMode=pair&chartInterval=1D&chartType=CANDLE&theme=light"></iframe>
+  </section>
+
+  <section>
+    <h2>Token Info</h2>
     <ul>
       <li><strong>Name:</strong> Moheji</li>
       <li><strong>Symbol:</strong> MOJ</li>
       <li><strong>Decimals:</strong> 6</li>
       <li><strong>Total Supply:</strong> 1,000,000,000 MOJ</li>
-      <li><strong>Mint Address:</strong> <code>HJwToCxFFmtnYGZMQa7rZwHAMG2evdbdXAbbQr1Jpump</code></li>
+      <li><strong>Mint Address:</strong> HJwToCxFFmtnYGZMQa7rZwHAMG2evdbdXAbbQr1Jpump</li>
     </ul>
   </section>
 
-  <section id="contract">
-    <h2>Smart Contract Link</h2>
-    <p>
-      Check the Moheji (MOJ) token smart contract on Solana blockchain explorer:
-    </p>
-    <p>
-      <a 
-        href="https://solscan.io/token/HJwToCxFFmtnYGZMQa7rZwHAMG2evdbdXAbbQr1Jpump" 
-        target="_blank" 
-        rel="noopener noreferrer" 
-        class="contract-link"
-      >
-        View MOJ Smart Contract on Solscan
-      </a>
-    </p>
+  <section class="socials">
+    <h2>Follow Us</h2>
+    <a href="https://twitter.com/mohejicoin" target="_blank"><img src="icons/x.svg" alt="X"></a>
+    <a href="https://discord.com/invite/MwkRdfyjR9" target="_blank"><img src="icons/discord.svg" alt="Discord"></a>
+    <a href="https://t.me/moheji_coin" target="_blank"><img src="icons/telegram.svg" alt="Telegram"></a>
+    <a href="https://github.com/mohejicoin" target="_blank"><img src="icons/github.svg" alt="GitHub"></a>
   </section>
 
-  <section id="nft-gallery">
-    <h2>HENOHENOMOHEJI NFT Gallery</h2>
-    <div class="gallery-container">
-      <div class="gallery-item">
-        <img src="https://raw.githubusercontent.com/mohejicoin/token-list/refs/heads/main/moheji_logo_square_1024x1024.png" alt="HENOHENOMOHEJI NFT #1" />
-        <p>HENOHENOMOHEJI NFT #1</p>
-      </div>
-      <!-- 他のNFT画像もここに追加できます -->
-    </div>
-  </section>
-
-  <section id="wallet-connect" class="center">
-    <h2>Connect Your Solana Wallet</h2>
-    <button id="connectPhantom">Connect Phantom Wallet</button>
-    <p id="walletAddress"></p>
-  </section>
-
-<!-- HTML -->
-<section class="sns-links">
-  <a href="https://twitter.com/mohejicoin" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)">
-    <img src="icons/x.svg" alt="X (Twitter)" />
-  </a>
-  <a href="https://discord.com/invite/MwkRdfyjR9" target="_blank" rel="noopener noreferrer" aria-label="Discord">
-    <img src="icons/discord.svg" alt="Discord" />
-  </a>
-  <a href="https://t.me/moheji_coin" target="_blank" rel="noopener noreferrer" aria-label="Telegram">
-    <img src="icons/telegram.svg" alt="Telegram" />
-  </a>
-  <a href="https://github.com/mohejicoin" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-    <img src="icons/github.svg" alt="GitHub" />
-  </a>
-</section>
-
-<!-- CSS -->
-<style>
-  .sns-links {
-    display: flex;
-    gap: 16px; /* アイコン間のスペース */
-    align-items: center;
-  }
-
-  .sns-links img {
-    width: 32px;
-    height: 32px;
-    filter: grayscale(100%);
-    transition: filter 0.3s ease;
-    cursor: pointer;
-  }
-
-  .sns-links a:hover img,
-  .sns-links a:focus img {
-    filter: none; /* ホバー or フォーカス時にカラー表示 */
-  }
-</style>
-
-  
   <footer>
-    &copy; 2025 Moheji (MOJ) Project | Built on Solana Blockchain
+    &copy; 2025 Moheji Token. All rights reserved. Built with culture and code.
   </footer>
-
-  <!-- Phantom Wallet接続用スクリプト -->
-  <script>
-    const connectPhantomBtn = document.getElementById('connectPhantom');
-    const walletAddressDisplay = document.getElementById('walletAddress');
-
-    connectPhantomBtn.addEventListener('click', async () => {
-      try {
-        if (window.solana && window.solana.isPhantom) {
-          const resp = await window.solana.connect();
-          walletAddressDisplay.textContent = `Connected wallet: ${resp.publicKey.toString()}`;
-          connectPhantomBtn.disabled = true;
-          connectPhantomBtn.textContent = 'Wallet Connected';
-        } else {
-          alert('Phantom Wallet not found, please install it in your browser.');
-        }
-      } catch (err) {
-        console.error(err);
-        alert('Wallet connection failed.');
-      }
-    });
-  </script>
 
 </body>
 </html>
