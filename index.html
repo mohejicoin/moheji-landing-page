@@ -141,6 +141,56 @@
   <p>© 2025 Moheji Token. All rights reserved. </p>
   <p style="font-size: 1.5rem;">🚀💎🚀</p>
 </footer>
+footer {
+  background: linear-gradient(270deg, #222, #512da8, #673ab7, #222);
+  background-size: 800% 800%;
+  animation: gradientBG 15s ease infinite;
+  color: #eee;
+  text-align: center;
+  padding: 2rem 1rem;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  position: relative;
+  overflow: hidden;
+}
+
+@keyframes gradientBG {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.glow-emoji {
+  font-size: 2rem;
+  margin-top: 0.5rem;
+  animation: glow 2s ease-in-out infinite alternate;
+  filter: drop-shadow(0 0 6px #ffcc00);
+}
+
+@keyframes glow {
+  from {
+    text-shadow:
+      0 0 5px #ffcc00,
+      0 0 10px #ffcc00,
+      0 0 20px #ffcc00,
+      0 0 30px #ffcc00,
+      0 0 40px #ffcc00;
+  }
+  to {
+    text-shadow:
+      0 0 10px #ffe066,
+      0 0 20px #ffe066,
+      0 0 30px #ffe066,
+      0 0 40px #ffe066,
+      0 0 50px #ffe066;
+  }
+}
 
 </body>
 </html>
