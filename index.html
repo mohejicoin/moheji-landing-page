@@ -226,21 +226,24 @@
 
 <style>
   @keyframes wiggle {
-    0%   { transform: translateX(0); }
-    25%  { transform: translateX(-5px); }
-    50%  { transform: translateX(5px); }
-    75%  { transform: translateX(-3px); }
-    100% { transform: translateX(0); }
-  }
+  0%   { transform: translateX(0); }
+  25%  { transform: translateX(-5px); }
+  50%  { transform: translateX(5px); }
+  75%  { transform: translateX(-3px); }
+  100% { transform: translateX(0); }
+}
 
-  .social-icon {
-    transition: transform 0.3s ease;
-    cursor: pointer;
-    display: inline-block;
-  }
-  .social-icon.animate {
-    animation: wiggle 0.4s ease;
-  }
+.social-icon {
+  transition: transform 0.3s ease;
+  cursor: pointer;
+  display: inline-block;
+}
+
+/* ホバー時にもwiggleアニメーションを追加 */
+.social-icon:hover,
+.social-icon.animate {
+  animation: wiggle 0.4s ease;
+}
 </style>
 
 <script>
