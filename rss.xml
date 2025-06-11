@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0">
+  <channel>
+    <title>Moheji Blog</title>
+    <link>https://mohejicoin.github.io/</link>
+    <description>Moheji project RSS feed</description>
+    <lastBuildDate>Wed, 11 Jun 2025 10:00:00 +0000</lastBuildDate>
+
+    <item>
+      <title>About Moheji (MOJ)</title>
+      <link>https://mohejicoin.github.io/#about</link>
+      <description>Introduction of the Moheji (MOJ) token on Solana</description>
+      <pubDate>Wed, 11 Jun 2025 09:00:00 +0000</pubDate>
+      <guid>https://mohejicoin.github.io/#about</guid>
+    </item>
+  </channel>
+</rss>
