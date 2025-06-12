@@ -4,7 +4,8 @@
     <title>Moheji Blog</title>
     <link>https://mohejicoin.github.io/moheji-landing-page/</link>
     <description>Moheji project RSS feed</description>
-    <lastBuildDate>Wed, 12 Jun 2025 13:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 13 Jun 2025 15:00:00 +0000</lastBuildDate>
+    <language>en</language>
 
     <item>
       <title>About Moheji (MOJ)</title>
@@ -15,13 +16,20 @@
     </item>
 
     <item>
-      <title>Solana DEXに上場</title>
+      <title>Listed on Solana DEX</title>
       <link>https://mohejicoin.github.io/moheji-landing-page/#dexlisting</link>
-      <description>Moheji (MOJ)がSolana DEXに上場しました！</description>
+      <description>Moheji (MOJ) has been listed on the Solana DEX!</description>
       <pubDate>Wed, 12 Jun 2025 13:00:00 +0000</pubDate>
       <guid>https://mohejicoin.github.io/moheji-landing-page/#dexlisting</guid>
     </item>
 
+    <item>
+      <title>Moheji Development Diary #1</title>
+      <link>https://mohejicoin.github.io/moheji-landing-page/#devlog1</link>
+      <description>Today, we came up with a new idea during Moheji development! We will start implementing it soon.</description>
+      <pubDate>Fri, 13 Jun 2025 15:00:00 +0000</pubDate>
+      <guid>https://mohejicoin.github.io/moheji-landing-page/#devlog1</guid>
+    </item>
+
   </channel>
 </rss>
-
