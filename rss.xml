@@ -3,7 +3,7 @@
   <channel>
     <title>Moheji Blog</title>
     <link>https://mohejicoin.github.io/moheji-landing-page/</link>
-    <description>Moheji project RSS feed</description>
+    <description>Moheji project RSS feed. Please note that schedules and plans are subject to change without prior notice.</description>
     <lastBuildDate>Sun, 15 Jun 2025 10:00:00 +0000</lastBuildDate>
     <language>en</language>
 
@@ -49,3 +49,4 @@
 
   </channel>
 </rss>
+
