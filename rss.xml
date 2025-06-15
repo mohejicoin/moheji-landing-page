@@ -4,7 +4,7 @@
     <title>Moheji Blog</title>
     <link>https://mohejicoin.github.io/moheji-landing-page/</link>
     <description>Moheji project RSS feed</description>
-    <lastBuildDate>Sat, 14 Jun 2025 10:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 15 Jun 2025 10:00:00 +0000</lastBuildDate>
     <language>en</language>
 
     <item>
@@ -37,6 +37,14 @@
       <description>We have started implementing a new feature! Details will be announced soon.</description>
       <pubDate>Sat, 14 Jun 2025 10:00:00 +0000</pubDate>
       <guid>https://mohejicoin.github.io/moheji-landing-page/#devlog2</guid>
+    </item>
+
+    <item>
+      <title>Moheji Development Diary #3</title>
+      <link>https://mohejicoin.github.io/moheji-landing-page/#devlog3</link>
+      <description>Feature implementation is progressing smoothly. We plan to release the update next week!</description>
+      <pubDate>Sun, 15 Jun 2025 10:00:00 +0000</pubDate>
+      <guid>https://mohejicoin.github.io/moheji-landing-page/#devlog3</guid>
     </item>
 
   </channel>
