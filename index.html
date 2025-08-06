@@ -1,364 +1,175 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Moheji (MOJ) - Culture, Fun, and Utility</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Shrikhand&family=Corben:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shrikhand&family=Corben:wght@400;700&display=swap" />
   <style>
     body {
       margin: 0;
       font-family: 'Corben', sans-serif;
       background-color: #fff8dc;
-      color: #222;
-      line-height: 1.6;
     }
 
+    /* Header + Hamburger */
     header {
       background-color: #ffe600;
-      text-align: center;
-      padding: 4rem 2rem 2rem;
+      padding: 1rem 1.5rem;
       position: relative;
     }
 
-    .hero-img {
-      max-width: 160px;
-      border-radius: 50%;
-      margin: 1rem auto;
-      display: block;
-      animation: float 3s ease-in-out infinite;
-      transition: transform 0.3s ease;
-      cursor: pointer;
-    }
-
-    .hero-img.active {
-      animation: shake 0.6s ease-in-out;
-      transform: scale(1.2) rotate(10deg);
-    }
-
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
-    }
-
-    @keyframes shake {
-      0%, 100% { transform: translate(0, 0) rotate(0); }
-      25% { transform: translate(3px, -3px) rotate(5deg); }
-      50% { transform: translate(-3px, 3px) rotate(-5deg); }
-      75% { transform: translate(3px, -3px) rotate(5deg); }
-    }
-
-    h1 {
-      font-family: 'Shrikhand', cursive;
-      font-size: 3rem;
-      margin: 0;
-    }
-
-    header p {
-      font-size: 1.2rem;
-      margin-top: 0.5rem;
-    }
-
-    .menu-btn {
-      display: none;
-      position: absolute;
-      top: 1rem;
-      right: 1rem;
-      font-size: 2rem;
-      background: none;
-      border: none;
-      cursor: pointer;
-    }
-
-    .nav {
+    .header-inner {
       display: flex;
-      justify-content: center;
-      margin-top: 1rem;
-    }
-
-    .nav ul {
-      list-style: none;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1.5rem;
-      padding: 0;
-      margin: 0;
+      justify-content: space-between;
       align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
     }
 
-    .nav a, .dropbtn {
-      text-decoration: none;
-      color: #222;
-      font-weight: bold;
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .logo img {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+    }
+
+    .logo h1 {
+      font-family: 'Shrikhand', cursive;
+      font-size: 2rem;
+      margin: 0;
+    }
+
+    #menuBtn {
       background: none;
       border: none;
+      font-size: 2rem;
       cursor: pointer;
-      font-family: inherit;
-      font-size: inherit;
     }
 
-    .dropdown {
-      position: relative;
-    }
-
-    .dropdown-content {
+    /* Navigation */
+    nav.nav {
       display: none;
+      background-color: #fffbe6;
       position: absolute;
       top: 100%;
       left: 0;
-      background-color: #ffe600;
-      border-radius: 6px;
-      min-width: 160px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      flex-direction: column;
+      width: 100%;
       z-index: 1000;
-      padding: 0.5rem 0;
     }
 
-    .dropdown-content a {
-      display: block;
-      padding: 0.5rem 1rem;
+    nav.nav ul {
+      list-style: none;
+      padding: 1rem;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    nav.nav ul li {
+      position: relative;
+    }
+
+    nav.nav ul li a {
       text-decoration: none;
       color: #222;
-      white-space: nowrap;
+      font-size: 1.1rem;
     }
 
-    .dropdown-content a:hover {
-      background-color: #fff2a8;
+    nav.nav ul li ul {
+      display: none;
+      padding-left: 1rem;
+      margin-top: 0.5rem;
+      flex-direction: column;
+      gap: 0.5rem;
     }
 
-    @media (min-width: 769px) {
-      .dropdown:hover .dropdown-content {
-        display: flex;
-      }
-    }
-
-    .dropdown.open .dropdown-content {
+    nav.nav ul li.show-sub > ul {
       display: flex;
     }
 
-    @media (max-width: 768px) {
-      .menu-btn {
-        display: block;
-      }
-
-      .nav {
-        display: none;
-        position: absolute;
-        top: 100%;
-        right: 1rem;
-        background: #ffe600;
-        flex-direction: column;
-        padding: 1rem;
-        border-radius: 10px;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-      }
-
-      .nav.show {
-        display: flex;
-      }
-
-      .nav ul {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 1rem;
-      }
+    .nav.show {
+      display: block;
     }
 
-    section {
+    /* Content placeholder */
+    main {
+      padding: 2rem;
       max-width: 800px;
       margin: auto;
-      padding: 2rem;
     }
 
-    h2 {
-      border-left: 5px solid #ffd700;
-      padding-left: 1rem;
-      font-weight: 700;
-      margin-top: 3rem;
-    }
-
-    iframe {
-      width: 100%;
-      height: 450px;
-      border: none;
-      border-radius: 12px;
-      margin-top: 1rem;
-    }
-
-    .token-info-box {
-      background: #fffbea;
-      border: 2px dashed #ffd700;
-      border-radius: 12px;
-      padding: 1rem;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      justify-content: space-between;
-      font-size: 0.95rem;
-    }
-
-    .token-info-box span {
-      flex: 1 1 300px;
-      word-break: break-word;
-    }
-
-    #copyBtn {
-      background-color: #ffd700;
-      border: none;
-      padding: 0.5rem 0.8rem;
-      border-radius: 8px;
-      cursor: pointer;
-      font-size: 1.2rem;
-    }
-
-    #toast {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background: #222;
-      color: #fff;
-      padding: 12px 20px;
-      border-radius: 10px;
-      opacity: 0;
-      transition: opacity 0.4s ease;
-      pointer-events: none;
-      z-index: 9999;
-      font-size: 0.95rem;
-    }
-
-    #toast.show {
-      opacity: 1;
-    }
-
-    .socials {
-      text-align: center;
-      margin: 2rem 0;
-    }
-
-    .socials img {
-      width: 36px;
-      margin: 0 10px;
-      filter: grayscale(100%);
-      transition: filter 0.3s ease;
-    }
-
-    .socials img:hover {
-      filter: none;
-    }
-
-    footer {
-      background: #111;
-      color: #eee;
-      text-align: center;
-      padding: 1rem;
-      font-size: 0.85rem;
+    /* Simple button hover */
+    nav.nav a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
 <body>
   <header>
-    <img src="https://raw.githubusercontent.com/mohejicoin/token-list/refs/heads/main/moheji_logo_square_1024x1024.png" alt="Moheji Logo" class="hero-img" id="mohejiLogo">
-    <h1>Moheji (MOJ)</h1>
-    <p>The Solana token combines culture, humor, and practicality</p>
-
-    <button class="menu-btn" id="menuBtn">☰</button>
+    <div class="header-inner">
+      <div class="logo">
+        <img src="https://raw.githubusercontent.com/mohejicoin/token-list/refs/heads/main/moheji_logo_square_1024x1024.png" alt="Moheji Logo" />
+        <h1>Moheji (MOJ)</h1>
+      </div>
+      <button id="menuBtn" aria-label="Menu">☰</button>
+    </div>
     <nav class="nav" id="navMenu">
       <ul>
         <li><a href="#about">About</a></li>
         <li><a href="#chart">Chart</a></li>
-        <li class="dropdown">
-          <button class="dropbtn">Token ▼</button>
-          <div class="dropdown-content">
-            <a href="#token">Mint Address</a>
-            <a href="#donation">Donation</a>
-          </div>
+        <li><a href="#video">Video</a></li>
+        <li id="tokenMenu">
+          <a href="javascript:void(0);">Token ▾</a>
+          <ul>
+            <li><a href="#info">Token Info</a></li>
+            <li><a href="#copy">Copy Mint</a></li>
+            <li><a href="https://solscan.io/token/DnbwSGgtnC1YdruuATd56A9tig4RWxCVkDqhMMN3bonk" target="_blank">Solscan</a></li>
+          </ul>
         </li>
         <li><a href="#socials">Socials</a></li>
       </ul>
     </nav>
   </header>
 
-  <section id="about">
-    <h2>About MOJ</h2>
-    <p>Moheji (MOJ) is a Solana token that is both meme-like and practical, inspired by the Japanese "Henohenomoheji" culture.</p>
-  </section>
-
-  <section id="chart">
-    <h2>Intro Video</h2>
-    <iframe src="https://www.youtube.com/embed/wVUs1uY1fdU" title="Moheji Token Introduction"></iframe>
-    <h2>Live Chart</h2>
-    <p>
-      View chart: 
-      <a href="https://gmgn.ai/sol/token/solscan_DnbwSGgtnC1YdruuATd56A9tig4RWxCVkDqhMMN3bonk" target="_blank">GMGN Chart</a>
-    </p>
-  </section>
-
-  <section id="token">
-    <h2>Token Info</h2>
-    <div class="token-info-box">
-      <span id="mintAddress">DnbwSGgtnC1YdruuATd56A9tig4RWxCVkDqhMMN3bonk</span>
-      <button id="copyBtn" title="Copy Mint Address">📋</button>
-    </div>
-  </section>
-
-  <div id="toast">Copied!</div>
-
-  <section class="socials" id="socials">
-    <h2>Follow Us</h2>
-    <a href="https://twitter.com/mohejicoin" target="_blank"><img src="icons/x.svg" alt="X" /></a>
-    <a href="https://discord.com/invite/MwkRdfyjR9" target="_blank"><img src="icons/discord.svg" alt="Discord" /></a>
-    <a href="https://t.me/mohejicoin" target="_blank"><img src="icons/telegram.svg" alt="Telegram" /></a>
-    <a href="https://github.com/mohejicoin" target="_blank"><img src="icons/github.svg" alt="GitHub" /></a>
-  </section>
-
-  <footer id="donation">
-    <p>©Moheji Token. All rights reserved.</p>
-    <p>Donation:
-      <a href="https://solscan.io/account/H6emNVxrxkqcuxwKwXbX5C6VKCxbFTghVLqLnAoEh7jQ" target="_blank">
-        H6em...h7jQ
-      </a>
-    </p>
-  </footer>
+  <main>
+    <section id="about"><h2>About MOJ</h2><p>Moheji (MOJ) is a Solana token inspired by Japanese culture.</p></section>
+    <section id="chart"><h2>Chart</h2><p>Live chart coming soon.</p></section>
+    <section id="video"><h2>Video</h2><p>Intro video coming soon.</p></section>
+    <section id="info"><h2>Token Info</h2><p>Mint address: DnbwSGgtnC1YdruuATd56A9tig4RWxCVkDqhMMN3bonk</p></section>
+    <section id="socials"><h2>Socials</h2><p>Follow us on Twitter, Discord, Telegram, etc.</p></section>
+  </main>
 
   <script>
-    const logo = document.getElementById('mohejiLogo');
-    logo.addEventListener('mouseenter', () => logo.classList.add('active'));
-    logo.addEventListener('mouseleave', () => logo.classList.remove('active'));
-
-    const copyBtn = document.getElementById('copyBtn');
-    const mintAddress = document.getElementById('mintAddress');
-    const toast = document.getElementById('toast');
-
-    copyBtn.addEventListener('click', () => {
-      navigator.clipboard.writeText(mintAddress.innerText)
-        .then(() => {
-          toast.textContent = "Copied!";
-          toast.classList.add("show");
-          setTimeout(() => toast.classList.remove("show"), 2000);
-        });
-    });
-
     const menuBtn = document.getElementById('menuBtn');
     const navMenu = document.getElementById('navMenu');
+    const tokenMenu = document.getElementById('tokenMenu');
 
     menuBtn.addEventListener('click', () => {
       navMenu.classList.toggle('show');
     });
 
-    // ドロップダウン開閉（スマホ）
-    const dropdown = document.querySelector('.dropdown');
-    const dropbtn = document.querySelector('.dropbtn');
-    dropbtn.addEventListener('click', (e) => {
-      e.preventDefault();
-      dropdown.classList.toggle('open');
+    tokenMenu.addEventListener('click', (e) => {
+      e.stopPropagation();
+      tokenMenu.classList.toggle('show-sub');
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!navMenu.contains(e.target) && e.target !== menuBtn) {
+        navMenu.classList.remove('show');
+        tokenMenu.classList.remove('show-sub');
+      }
     });
   </script>
 </body>
 </html>
-
 
 
 
