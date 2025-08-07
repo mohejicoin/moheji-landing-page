@@ -4,7 +4,7 @@ This file records all confirmed donations to the Moheji project's official donat
 
 ## Donation Address
 **Solana Address:** 
-H6emNVxrxkqcuxwKwXbX5C6VKCxbFTghVLqLnAoEh7jQ
+...
 ---
 
 ## Donation History
