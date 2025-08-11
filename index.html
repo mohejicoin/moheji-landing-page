@@ -1,101 +1,151 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Moheji (MOJ) - Culture, Fun, and Utility</title>
-  <meta name="description" content="Moheji (MOJ) is the meme-utility token on Solana. Inspired by the traditional Japanese 'へのへのもへじ' face." />
-  <meta name="author" content="Moheji Team" />
-  <link rel="icon" href="moheji_logo_square_512.webp" type="image/webp" />
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Moheji (MOJ) - Culture, Fun, and Utility</title>
+<meta name="description" content="Moheji (MOJ) is the meme-utility token on Solana. Inspired by the traditional Japanese 'へのへのもへじ' face."/>
+<meta name="author" content="Moheji Team"/>
+<link rel="icon" href="moheji_logo_square_512.webp" type="image/webp"/>
+<!-- Optional: Google fonts (keep or remove to save request) -->
+<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Shrikhand&family=Corben:wght@400;700&display=swap">
+<link href="https://fonts.googleapis.com/css2?family=Shrikhand&family=Corben:wght@400;700&display=swap" rel="stylesheet">
 
-  <!-- Google Fonts Preload -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Shrikhand&family=Corben:wght@400;700&display=swap">
-  <link href="https://fonts.googleapis.com/css2?family=Shrikhand&family=Corben:wght@400;700&display=swap" rel="stylesheet">
-
-  <!-- Minified CSS -->
-  <link rel="stylesheet" href="style.min.css">
+<style>
+/* ========== minified but readable CSS ========== */
+:root{--bg:#fff8dc;--accent:#ffd700;--muted:#222;--header:#ffe600}
+*{box-sizing:border-box}body{margin:0;font-family:'Corben',system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial,sans-serif;background:var(--bg);color:var(--muted);line-height:1.6}
+header{background:var(--header);text-align:center;padding:4rem 1.25rem 2rem}h1{font-family:'Shrikhand',cursive;font-size:2.6rem;margin:.25rem 0}header p{margin:.25rem 0 0;font-size:1.05rem}
+.hero-img{width:160px;height:160px;border-radius:50%;display:block;margin:1rem auto;object-fit:cover;animation:float 3s ease-in-out infinite;transition:transform .25s ease;cursor:pointer}
+.hero-img.active{animation:shake .6s ease-in-out;transform:scale(1.15) rotate(8deg)}
+@keyframes float{0%{transform:translateY(0)}50%{transform:translateY(-8px)}100%{transform:translateY(0)}}
+@keyframes shake{0%,100%{transform:translate(0,0) rotate(0)}25%{transform:translate(3px,-3px) rotate(5deg)}50%{transform:translate(-3px,3px) rotate(-5deg)}75%{transform:translate(3px,-3px) rotate(5deg)}}
+main{max-width:900px;margin:0 auto;padding:1.5rem}
+h2{border-left:5px solid var(--accent);padding-left:1rem;margin-top:2rem;font-weight:700}
+.token-info-box{display:flex;align-items:center;justify-content:space-between;gap:1rem;background:#fffbea;border:2px dashed var(--accent);border-radius:12px;padding:1rem;flex-wrap:wrap}
+.token-info-box span{flex:1 1 260px;overflow-wrap:anywhere}
+#copyBtn{background:var(--accent);border:none;padding:.5rem .8rem;border-radius:8px;cursor:pointer;font-size:1.1rem}
+#copyBtn:active,#copyBtn:hover{transform:translateY(-2px);box-shadow:0 6px 16px rgba(0,0,0,.12)}
+.socials{text-align:center;margin:2rem 0}
+.socials a{display:inline-block;margin:0 8px}
+.socials svg{width:36px;height:36px;filter:grayscale(100%);transition:filter .18s ease,transform .18s ease}
+.socials svg:hover{filter:none;transform:translateY(-3px)}
+footer{background:#111;color:#eee;text-align:center;padding:1rem;font-size:.9rem;margin-top:2rem}
+.glow-emoji{font-size:1.6rem;color:#00ffe0;text-shadow:0 0 6px #00ffe0,0 0 12px #00ffe0;display:inline-block;margin-top:.5rem;cursor:pointer;transition:transform .18s ease}
+.glow-emoji.active{transform:scale(1.12) rotate(6deg)}
+#toast{position:fixed;right:20px;bottom:20px;background:#222;color:#fff;padding:10px 14px;border-radius:10px;opacity:0;pointer-events:none;transition:opacity .25s ease;z-index:9999}
+#toast.show{opacity:1}
+.video-placeholder{position:relative;padding-bottom:56.25%;height:0;background:#000;border-radius:12px;overflow:hidden;cursor:pointer}
+.video-placeholder img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.video-play{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);background:rgba(0,0,0,.6);border-radius:50%;width:64px;height:64px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:28px}
+@media(max-width:520px){h1{font-size:2rem}.hero-img{width:128px;height:128px}}
+</style>
 </head>
 <body>
-  <header>
-    <img 
-      src="moheji_logo_square_512.webp" 
-      alt="Moheji Logo" 
-      class="hero-img" 
-      id="mohejiLogo"
-      loading="lazy"
-      width="160"
-      height="160"
-    >
-    <h1>Moheji (MOJ)</h1>
-    <p>The Solana token combines culture, humor, and practicality</p>
-  </header>
+<header>
+  <!-- picture: webp first, png fallback -->
+  <picture>
+    <source srcset="moheji_logo_square_512.webp" type="image/webp">
+    <source srcset="moheji_logo_square_512.png" type="image/png">
+    <img src="moheji_logo_square_512.png" alt="Moheji Logo" width="160" height="160" class="hero-img" id="mohejiLogo" loading="lazy" decoding="async">
+  </picture>
+  <h1>Moheji (MOJ)</h1>
+  <p>The Solana token that blends culture, humor and utility</p>
+</header>
 
+<main>
   <section>
     <h2>About MOJ</h2>
-    <p>Moheji (MOJ) is a Solana token that is both meme-like and practical, inspired by the Japanese "Henohenomoheji" culture.</p>
+    <p>Moheji (MOJ) is a Solana token inspired by the Japanese "Henohenomoheji". It's playful, usable, and community-driven.</p>
   </section>
 
   <section>
     <h2>Intro Video</h2>
-    <!-- Lazy YouTube Embed -->
-    <div class="video-wrapper" style="position:relative;padding-bottom:56.25%;height:0;">
-      <iframe loading="lazy" src="https://www.youtube.com/embed/wVUs1uY1fdU" title="Moheji Token Introduction" style="position:absolute;width:100%;height:100%;border:0;" allowfullscreen></iframe>
+    <!-- Click-to-load YouTube (prevents iframe load until user interacts) -->
+    <div id="ytPlaceholder" class="video-placeholder" role="button" aria-label="Load Moheji intro video">
+      <!-- Optional: Replace thumbnail URL with your actual thumbnail for better UX -->
+      <img src="https://img.youtube.com/vi/wVUs1uY1fdU/hqdefault.jpg" alt="Intro video thumbnail" loading="lazy" decoding="async">
+      <div class="video-play">▶</div>
     </div>
   </section>
 
   <section>
     <h2>Live Chart</h2>
-    <p>
-      <a href="https://gmgn.ai/sol/token/solscan_DnbwSGgtnC1YdruuATd56A9tig4RWxCVkDqhMMN3bonk" target="_blank" rel="noopener">
-        View GMGN Chart
-      </a>
-    </p>
+    <p>View the live market chart: <a href="https://gmgn.ai/sol/token/solscan_DnbwSGgtnC1YdruuATd56A9tig4RWxCVkDqhMMN3bonk" target="_blank" rel="noopener noreferrer">Open GMGN Chart</a></p>
   </section>
 
   <section>
     <h2>Token Info</h2>
-    <div class="token-info-box">
+    <div class="token-info-box" role="group" aria-label="Token information">
       <span id="mintAddress">DnbwSGgtnC1YdruuATd56A9tig4RWxCVkDqhMMN3bonk</span>
-      <button id="copyBtn" title="Copy Mint Address">📋</button>
+      <button id="copyBtn" title="Copy mint address" aria-live="polite">📋</button>
     </div>
   </section>
 
-  <div id="toast">Copied!</div>
+  <div id="toast" role="status" aria-live="polite">Copied!</div>
 
-  <section class="socials">
-    <h2>Follow Us</h2>
-    <!-- Inline SVGs for speed -->
-    <a href="https://twitter.com/mohejicoin" target="_blank" rel="noopener">
-      <svg width="36" height="36" fill="currentColor" aria-label="X"><use href="#icon-x"></use></svg>
+  <section class="socials" aria-label="Follow us">
+    <h2 style="border-left:none;padding-left:0;margin-top:0">Follow Us</h2>
+    <a href="https://twitter.com/mohejicoin" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4.5L19 19M19 4.5L5 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
     </a>
-    <a href="https://discord.com/invite/MwkRdfyjR9" target="_blank" rel="noopener">
-      <svg width="36" height="36" fill="currentColor" aria-label="Discord"><use href="#icon-discord"></use></svg>
+    <a href="https://discord.com/invite/MwkRdfyjR9" target="_blank" rel="noopener noreferrer" aria-label="Discord">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 8.5c0 1.2 1 2.2 2.2 2.2S11.4 9.7 11.4 8.5 10.4 6.3 9.2 6.3 7 7.3 7 8.5zm9 0c0 1.2 1 2.2 2.2 2.2s2.2-1 2.2-2.2-1-2.2-2.2-2.2-2.2 1-2.2 2.2zM4 19s1.6-4.8 5.8-6.1c0 0 .5.7.9 1.3-3.7 1.1-4.8 3.9-5.1 4.8zM20 19s-1.6-4.8-5.8-6.1c0 0-.5.7-.9 1.3 3.7 1.1 4.8 3.9 5.1 4.8z" fill="currentColor"/></svg>
     </a>
-    <a href="https://t.me/mohejicoin" target="_blank" rel="noopener">
-      <svg width="36" height="36" fill="currentColor" aria-label="Telegram"><use href="#icon-telegram"></use></svg>
+    <a href="https://t.me/mohejicoin" target="_blank" rel="noopener noreferrer" aria-label="Telegram">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12l18-7-8 9-3-2-7 0z" fill="currentColor"/></svg>
     </a>
-    <a href="https://github.com/mohejicoin" target="_blank" rel="noopener">
-      <svg width="36" height="36" fill="currentColor" aria-label="GitHub"><use href="#icon-github"></use></svg>
+    <a href="https://github.com/mohejicoin" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5C5.7.5.9 5.3.9 11.6c0 4.7 3 8.7 7.1 10.1.5.1.7-.2.7-.5v-1.8c-2.9.6-3.5-1.1-3.5-1.1-.4-1-1-1.3-1-1.3-.8-.6.1-.6.1-.6.9.1 1.4.9 1.4.9.8 1.4 2.1 1 2.6.8.1-.6.3-1 .6-1.3-2.3-.3-4.7-1.2-4.7-5.3 0-1.2.4-2.1 1.1-2.8-.1-.3-.5-1.4.1-2.8 0 0 .9-.3 2.9 1.1a10 10 0 0 1 5.2 0c2-1.4 2.9-1.1 2.9-1.1.6 1.4.2 2.5.1 2.8.7.7 1.1 1.6 1.1 2.8 0 4.1-2.4 5-4.7 5.3.4.4.7 1 .7 2v3c0 .3.2.6.7.5 4.1-1.4 7.1-5.4 7.1-10.1C23.1 5.3 18.3.5 12 .5z" fill="currentColor"/></svg>
     </a>
   </section>
+</main>
 
-  <footer>
-    <p>©Moheji Token. All rights reserved.</p>
-    <p>Donation: <a href="https://solscan.io/account/" target="_blank" style="color: #00ffa0;">...</a></p>
-    <div class="glow-emoji" id="emojiEffect">🚀💎🚀</div>
-  </footer>
+<!-- Inline JS (kept compact) -->
+<script>
+/* Minimal, performant behavior: copy, toast, logo/emoji interaction, click-to-load YouTube */
+(function(){
+  var logo=document.getElementById('mohejiLogo'), emoji=document.querySelector('.glow-emoji'), copyBtn=document.getElementById('copyBtn'), mint=document.getElementById('mintAddress'), toast=document.getElementById('toast'), ytPlaceholder=document.getElementById('ytPlaceholder');
+  if(logo){
+    logo.addEventListener('mouseenter',function(){logo.classList.add('active')});
+    logo.addEventListener('mouseleave',function(){logo.classList.remove('active')});
+    logo.addEventListener('touchstart',function(){logo.classList.add('active')});
+    logo.addEventListener('touchend',function(){setTimeout(function(){logo.classList.remove('active')},600)});
+  }
+  if(emoji){
+    emoji.addEventListener('mouseenter',function(){emoji.classList.add('active')});
+    emoji.addEventListener('mouseleave',function(){emoji.classList.remove('active')});
+    emoji.addEventListener('touchstart',function(){emoji.classList.add('active');setTimeout(function(){emoji.classList.remove('active')},900)});
+  }
+  if(copyBtn && navigator.clipboard){
+    copyBtn.addEventListener('click',function(){
+      navigator.clipboard.writeText(mint.innerText).then(function(){showToast('Mint address copied!')}).catch(function(){showToast('Copy failed')});
+    });
+  }
+  function showToast(msg){ if(!toast) return; toast.textContent=msg; toast.classList.add('show'); setTimeout(function(){toast.classList.remove('show')},2000) }
 
-  <!-- Minified JS -->
-  <script src="main.min.js" defer></script>
+  // Click-to-load YouTube iframe to avoid initial iframe fetch
+  if(ytPlaceholder){
+    ytPlaceholder.addEventListener('click',function(){
+      if(ytPlaceholder.dataset.loaded==='1') return;
+      var iframe=document.createElement('iframe');
+      iframe.setAttribute('src','https://www.youtube.com/embed/wVUs1uY1fdU?autoplay=1&rel=0');
+      iframe.setAttribute('title','Moheji Token Introduction');
+      iframe.setAttribute('allow','accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture');
+      iframe.setAttribute('allowfullscreen','');
+      iframe.style.position='absolute'; iframe.style.inset='0'; iframe.style.border='0'; iframe.style.width='100%'; iframe.style.height='100%';
+      ytPlaceholder.innerHTML=''; ytPlaceholder.appendChild(iframe); ytPlaceholder.dataset.loaded='1';
+    });
+  }
+})();
+</script>
 
-  <!-- SVG Sprite Definitions -->
-  <svg style="display:none">
-    <symbol id="icon-x" viewBox="0 0 24 24"><path d="M..."/></symbol>
-    <symbol id="icon-discord" viewBox="0 0 24 24"><path d="M..."/></symbol>
-    <symbol id="icon-telegram" viewBox="0 0 24 24"><path d="M..."/></symbol>
-    <symbol id="icon-github" viewBox="0 0 24 24"><path d="M..."/></symbol>
-  </svg>
+<footer>
+  <p>© Moheji Token. All rights reserved.</p>
+  <p>Donation: <a href="https://solscan.io/account/" target="_blank" rel="noopener noreferrer" style="color:#00ffa0;text-decoration:none">Solscan</a></p>
+  <div class="glow-emoji" id="emojiEffect" role="img" aria-label="rocket">🚀💎🚀</div>
+</footer>
 </body>
 </html>
