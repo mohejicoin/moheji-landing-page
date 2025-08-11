@@ -1,5 +1,5 @@
 Support the Project  
-If you'd like to support the development and expansion of the Moheji (MOJ) token, you can donate via Solana.
+If you'd like to support the development and expansion of the Moheji (moj) token, you can donate via Solana.
 
 Donation Address: ...
 Donation Log: [View donation-log.md](./donation-log.md)
